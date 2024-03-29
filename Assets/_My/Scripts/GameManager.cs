@@ -86,11 +86,11 @@ public class GameManager : MonoBehaviour
         SetObjPosition(caseFX, bulletCasePoint);
 
         //Instantiate(bulletObj, bulletPoint.position, Quaternion.LookRotation(aim, Vector3.up)); //회전은 y축 기준
-    
+
         GameObject prefabToSpawn = PoolManager.Instance.ActivateObj(0);
-        SetObjPosition(prefabToSpawn,bulletPoint);
+        SetObjPosition(prefabToSpawn, bulletPoint);
         prefabToSpawn.transform.rotation = Quaternion.LookRotation(aim, Vector3.up);
-        
+
 
         //Raycast(적이 데미지 입는 코드_raycast)
         /*

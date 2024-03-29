@@ -10,18 +10,18 @@ public class BulletManager : MonoBehaviour
     private float moveSpeed = 10f;
     private float destroyTime = 3f;
 
-    
+
     void Start()
     {
         bulletRigibody = GetComponent<Rigidbody>();
     }
 
-    
+
     void Update()
     {
         destroyTime -= Time.deltaTime;
 
-        if (destroyTime <= 0) 
+        if (destroyTime <= 0)
         {
             DestroyBullet();
         }
@@ -44,7 +44,7 @@ public class BulletManager : MonoBehaviour
     //충돌시 파괴, 충돌 감지  ->Header 충돌시 -5~-10의 데미지를 입게 할 것.
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Enemy>().enemyCurrentHP -= 1;   //맞으면 1씩 -1
         }
