@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] spawnPoint;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         InitBullet();
 
-        StartCoroutine(EnemySpawn());
+        //StartCoroutine(EnemySpawn());
     }
 
     // Update is called once per frame
