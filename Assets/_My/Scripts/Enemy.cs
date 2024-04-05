@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private int enemyMaxHP = 3;
+    private int enemyMaxHP = 5;
     public int enemyCurrentHP = 0;
 
     private UnityEngine.AI.NavMeshAgent agent;

@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
         InitBullet();
 
-        StartCoroutine(EnemySpawn());
+        //StartCoroutine(EnemySpawn());   //스폰 잠시 주석처리!
     }
 
     // Update is called once per frame
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         obj.transform.position = targetTransform.position;
     }
 
-    IEnumerator EnemySpawn() // 적 스폰 함수
+    /*IEnumerator EnemySpawn() // 적 스폰 함수
     {
         // 적1과 적2가 prefabs 배열의 4번째와 5번째 인덱스에 있다고 가정
         int randomIndex = Random.Range(4, 6); // 4 또는 5 중 랜덤한 값을 생성
@@ -135,17 +135,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(7f);  // 7초마다 적 스폰
 
         StartCoroutine(EnemySpawn());  // 재귀적으로 코루틴 실행
-    }
+    }*/
 
-
-    /* IEnumerator EnemySpawn() // 적 스폰 함수
-     {
-         //Instantiate(enemy, spawnPoint[Random.Range(0, spawnPoint.Length)].transform.position, Quaternion.identity);
-         GameObject enemy = PoolManager.Instance.ActivateObj(4);
-         SetObjPosition(enemy, spawnPoint[Random.Range(0, spawnPoint.Length)].transform);
-
-         yield return new WaitForSeconds(7f);  //7초마다 적 스폰
-
-         StartCoroutine(EnemySpawn());  //생성
-     }*/
+    
 }

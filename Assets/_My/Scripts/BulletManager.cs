@@ -41,7 +41,7 @@ public class BulletManager : MonoBehaviour
         destroyTime = 3;
     }
 
-    //충돌시 파괴, 충돌 감지  ->Header 충돌시 -5~-10의 데미지를 입게 할 것.
+    //충돌시 파괴, 충돌 감지  
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
