@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Subject
   - Waypoints
+  - SubjectHand
   layers:
   - Default
   - TransparentFX
