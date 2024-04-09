@@ -46,16 +46,4 @@ public class Subject : MonoBehaviour
     }
 
 
-    public void Update() 
-    {
-        if(navAgent.velocity.magnitude > 0.1f)
-        {
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
-    }
-
 }
