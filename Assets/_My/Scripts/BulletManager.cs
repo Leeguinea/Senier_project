@@ -26,10 +26,10 @@ public class BulletManager : MonoBehaviour
             DestroyBullet();
         }
 
-        BullectMove();
+        BulletMove();
     }
 
-    private void BullectMove()
+    private void BulletMove()
     {
         bulletRigibody.velocity = transform.forward * moveSpeed; //총알 속도 = 전면 * 속도
     }
@@ -41,14 +41,22 @@ public class BulletManager : MonoBehaviour
         destroyTime = 3;
     }
 
-    //충돌시 파괴, 충돌 감지  
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
+            // 기존 로직 유지
             other.gameObject.GetComponent<Enemy>().enemyCurrentHP -= 1;   //맞으면 1씩 -1
+        }
+
+        if (other.CompareTag("Subject"))
+        {
+            // 직접 HP를 감소시키는 대신, TakeDamage 메소드를 호출하여 데미지 처리
+            other.gameObject.GetComponent<Subject>().TakeDamage(1);   //맞으면 1씩 데미지
         }
 
         DestroyBullet();
     }
+
+
 }
