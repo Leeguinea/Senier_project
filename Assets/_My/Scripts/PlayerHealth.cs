@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health;
+    public float health;
     private float lerpTimer;
     public float maxHealth = 100;
     public float chipSpeed = 2f; //지연된 힐바를 따라잡는 것
