@@ -42,7 +42,7 @@ public class BulletManager : MonoBehaviour
         destroyTime = 3;
     }
 
-
+    //충돌시 파괴, 충돌 감지  ->Header 충돌시 -5~-10의 데미지를 입게 할 것.
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision with: " + other.gameObject.name);
@@ -68,21 +68,6 @@ public class BulletManager : MonoBehaviour
             Debug.Log("보스의 hp : " + bossEnemy.bossCurrentHP);
             bossEnemy.headShotCnt += 1;     //충돌 여부 업데이트
             //collided = true;
-        }
-
-        if (other.CompareTag("Boss"))
-        {
-            Debug.Log("피격");
-            bossEnemy.bossCurrentHP -= 1;   //맞으면 HP -1
-            Debug.Log("보스의 hp : " + bossEnemy.bossCurrentHP);
-        }
-
-        if (other.CompareTag("BossHead"))
-        {
-            Debug.Log("헤드샷");
-            bossEnemy.bossCurrentHP -= 1;  //맞으면 HP -10
-            Debug.Log("보스의 hp : " + bossEnemy.bossCurrentHP);
-            bossEnemy.headShotCnt += 1;     //충돌 여부 업데이트
         }
 
         DestroyBullet();
