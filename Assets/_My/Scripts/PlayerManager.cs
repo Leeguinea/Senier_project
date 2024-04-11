@@ -119,6 +119,7 @@ public class PlayerManager : MonoBehaviour
             {
                 anim.SetBool("Shoot", true);
                 GameManager.Instance.Shooting(targetPosition, enemy, weaponSound, shootingSound);
+                //Debug.Log("»§¾ß");
             }
             else
             {

@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] spawnPoint;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,13 +53,14 @@ public class GameManager : MonoBehaviour
 
         InitBullet();
 
-        StartCoroutine(EnemySpawn());
+        //StartCoroutine(EnemySpawn());
     }
 
     // Update is called once per frame
     void Update()
     {
         bulletText.text = currentBullet + " / ∞"; //+ maxBullet;
+
     }
 
     //총_기능
@@ -90,8 +93,8 @@ public class GameManager : MonoBehaviour
         GameObject prefabToSpawn = PoolManager.Instance.ActivateObj(0);
         SetObjPosition(prefabToSpawn,bulletPoint);
         prefabToSpawn.transform.rotation = Quaternion.LookRotation(aim, Vector3.up);
-        
 
+        Debug.Log("빵야");
         //Raycast(적이 데미지 입는 코드_raycast)
         /*
         if(enemy != null && enemy.enemyCurrentHP > 0)
@@ -100,8 +103,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("enemy HP :" + enemy.enemyCurrentHP);
         }
         */
-    }
 
+    }
 
 
     public void ReroadClip()
