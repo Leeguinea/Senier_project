@@ -135,7 +135,7 @@ public class BossEnemy : MonoBehaviour
 
             if (collider.CompareTag("Player"))
             {
-                collider.gameObject.GetComponent<PlayerHealth>().TakeDamage(damagePerSecond * damageInterval);
+                collider.gameObject.GetComponent<PlayerHealthBar>().TakeDamage(damagePerSecond * damageInterval);
                 StartCoroutine(ApplyDamageOverTime(collider.gameObject));
             }
         }
@@ -153,7 +153,7 @@ public class BossEnemy : MonoBehaviour
             }
             if (LayerMask.LayerToName(entity.layer) == "Player")
             {
-                entity.GetComponent<PlayerHealth>().TakeDamage(damagePerSecond * damageInterval);
+                entity.GetComponent<PlayerHealthBar>().TakeDamage(damagePerSecond * damageInterval);
             }
             yield return null;
         }

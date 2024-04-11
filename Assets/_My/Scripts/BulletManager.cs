@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     private Rigidbody bulletRigibody;
+    private BossEnemy bossEnemy;
 
     [SerializeField]
     private float moveSpeed = 10f;
@@ -14,6 +15,7 @@ public class BulletManager : MonoBehaviour
     void Start()
     {
         bulletRigibody = GetComponent<Rigidbody>();
+        bossEnemy = FindObjectOfType<BossEnemy>();
     }
 
 
@@ -43,10 +45,29 @@ public class BulletManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collision with: " + other.gameObject.name);
+
         if (other.CompareTag("Enemy"))
         {
-            // 기존 로직 유지
             other.gameObject.GetComponent<Enemy>().enemyCurrentHP -= 1;   //맞으면 1씩 -1
+            //collided = true; //충돌 여부 업데이트
+        }
+
+        if (other.CompareTag("Boss"))
+        {
+            Debug.Log("피격");
+            bossEnemy.bossCurrentHP -= 1;   //맞으면 HP -1
+            Debug.Log("보스의 hp : " + bossEnemy.bossCurrentHP);
+            //collided = true;                //충돌 여부 업데이트 
+        }
+
+        if (other.CompareTag("BossHead"))
+        {
+            Debug.Log("헤드샷");
+            bossEnemy.bossCurrentHP -= 1;  //맞으면 HP -10
+            Debug.Log("보스의 hp : " + bossEnemy.bossCurrentHP);
+            bossEnemy.headShotCnt += 1;     //충돌 여부 업데이트
+            //collided = true;
         }
 
         if (other.CompareTag("Subject"))

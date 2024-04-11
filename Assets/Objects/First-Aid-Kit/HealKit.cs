@@ -37,7 +37,7 @@ public class HealKit : MonoBehaviour
     {
         if (other.CompareTag("Player")) //ÇÃ·¹ÀÌ¾î¿Í Á¢ÃË ½Ã
         {
-            other.gameObject.GetComponent<PlayerHealth>().RestoreHealth(healAmount); //Èú¸µ
+            other.gameObject.GetComponent<PlayerHealthBar>().RestoreHealth(healAmount); //Èú¸µ
             gameObject.SetActive(false);    //ÈúÆÑ ºñÈ°¼ºÈ­
             Invoke("Respawn", respawnTime); //ÈúÆÑ ¸®½ºÆù
         }

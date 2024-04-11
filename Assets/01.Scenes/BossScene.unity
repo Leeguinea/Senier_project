@@ -4082,6 +4082,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3712592762361858723, guid: 82a76256a42024049964a0c8b9bb380f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8080840692389272037, guid: 82a76256a42024049964a0c8b9bb380f,
         type: 3}
       propertyPath: m_Name
@@ -4286,6 +4291,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1095251116339441555, guid: 2e664cff58592ef46ae18f05c38f52e5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6416553044761221045, guid: 2e664cff58592ef46ae18f05c38f52e5,
         type: 3}
       propertyPath: m_Name
@@ -4471,6 +4481,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134588362448227865, guid: 84ecf1efb046f604e8edf8818733b7fc,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4186164111742938921, guid: 84ecf1efb046f604e8edf8818733b7fc,
         type: 3}
