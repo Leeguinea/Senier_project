@@ -42,8 +42,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] spawnPoint;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -53,14 +51,13 @@ public class GameManager : MonoBehaviour
 
         InitBullet();
 
-        //StartCoroutine(EnemySpawn());
+        //StartCoroutine(EnemySpawn());   //스폰 잠시 주석처리!
     }
 
     // Update is called once per frame
     void Update()
     {
         bulletText.text = currentBullet + " / ∞"; //+ maxBullet;
-
     }
 
     //총_기능
@@ -89,12 +86,12 @@ public class GameManager : MonoBehaviour
         SetObjPosition(caseFX, bulletCasePoint);
 
         //Instantiate(bulletObj, bulletPoint.position, Quaternion.LookRotation(aim, Vector3.up)); //회전은 y축 기준
-    
+
         GameObject prefabToSpawn = PoolManager.Instance.ActivateObj(0);
-        SetObjPosition(prefabToSpawn,bulletPoint);
+        SetObjPosition(prefabToSpawn, bulletPoint);
         prefabToSpawn.transform.rotation = Quaternion.LookRotation(aim, Vector3.up);
 
-        Debug.Log("빵야");
+
         //Raycast(적이 데미지 입는 코드_raycast)
         /*
         if(enemy != null && enemy.enemyCurrentHP > 0)
@@ -103,8 +100,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("enemy HP :" + enemy.enemyCurrentHP);
         }
         */
-
     }
+
 
 
     public void ReroadClip()
@@ -127,7 +124,7 @@ public class GameManager : MonoBehaviour
         obj.transform.position = targetTransform.position;
     }
 
-    IEnumerator EnemySpawn() // 적 스폰 함수
+    /*IEnumerator EnemySpawn() // 적 스폰 함수
     {
         // 적1과 적2가 prefabs 배열의 4번째와 5번째 인덱스에 있다고 가정
         int randomIndex = Random.Range(4, 6); // 4 또는 5 중 랜덤한 값을 생성
@@ -138,17 +135,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(7f);  // 7초마다 적 스폰
 
         StartCoroutine(EnemySpawn());  // 재귀적으로 코루틴 실행
-    }
+    }*/
 
-
-    /* IEnumerator EnemySpawn() // 적 스폰 함수
-     {
-         //Instantiate(enemy, spawnPoint[Random.Range(0, spawnPoint.Length)].transform.position, Quaternion.identity);
-         GameObject enemy = PoolManager.Instance.ActivateObj(4);
-         SetObjPosition(enemy, spawnPoint[Random.Range(0, spawnPoint.Length)].transform);
-
-         yield return new WaitForSeconds(7f);  //7초마다 적 스폰
-
-         StartCoroutine(EnemySpawn());  //생성
-     }*/
+    
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+//이동, 추적, 공격 애니메이션 재생, 사망 
+
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponent<Animator>();
-        enemyCollider =  GetComponent<CapsuleCollider>(); 
+        enemyCollider = GetComponent<CapsuleCollider>();
 
         targetPlayer = GameObject.FindWithTag("Player");
 
