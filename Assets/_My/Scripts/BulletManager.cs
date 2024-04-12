@@ -73,11 +73,38 @@ public class BulletManager : MonoBehaviour
         if (other.CompareTag("Subject"))
         {
             // 직접 HP를 감소시키는 대신, TakeDamage 메소드를 호출하여 데미지 처리
-            other.gameObject.GetComponent<Subject>().TakeDamage(1);   //맞으면 1씩 데미지
+            if(other.gameObject.GetComponent<Subject>().isDead == false)
+            {
+                other.gameObject.GetComponent<Subject>().TakeDamage(1);   //맞으면 1씩 데미지
+            }
         }
 
-        DestroyBullet();
+
+        DestroyBullet();  //파괴
     }
 
 
+    //Effect(피/...)
+    //BloodSpray_Effect
+    private void OnCollisionEnter(Collision objectWeHit)
+    {
+        if(objectWeHit.gameObject.CompareTag("Subject"))
+        {
+            CreateBloodSprayEffect(objectWeHit);
+
+        }
+    }
+
+    private void CreateBloodSprayEffect(Collision objectWeHit)
+    {
+        ContactPoint contact = objectWeHit.contacts[0];
+
+        GameObject bloodSprayPrefab = Instantiate(
+        GameManager.Instance.bloodSprayEffect,
+        contact.point, // 위치를 지정합니다.
+        Quaternion.LookRotation(contact.normal)
+        );
+
+        bloodSprayPrefab.transform.SetParent(objectWeHit.gameObject.transform);
+    }
 }

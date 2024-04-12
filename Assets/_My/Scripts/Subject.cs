@@ -14,6 +14,8 @@ public class Subject : MonoBehaviour
     public SubjectHand subjectHand;  //공격 매체
     public int damage = 1;  //플레이어에게 주는 damage
 
+    public bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,10 +43,18 @@ public class Subject : MonoBehaviour
                 animator.SetTrigger("DIE2");
             }
 
+            isDead = true;
+
+            //Dead Sound
+            SoundManager.instance.SubjectChannel.PlayOneShot(SoundManager.instance.SubjectDeath);
+
         }
         else  // Hit 애니메이션
         {
             animator.SetTrigger("DAMAGE");
+
+            //Hurt Sound
+            SoundManager.instance.SubjectChannel.PlayOneShot(SoundManager.instance.SubjectHurt);
         }
     }
 

@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] spawnPoint;
 
+    [Header("Effect")]
+    [SerializeField]
+    public GameObject bloodSprayEffect;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,7 +129,7 @@ public class GameManager : MonoBehaviour
         obj.transform.position = targetTransform.position;
     }
 
-    /*IEnumerator EnemySpawn() // 적 스폰 함수
+    /*IEnumerator EnemySpawn() // 적 스폰 함수  ->삭제 금지!
     {
         // 적1과 적2가 prefabs 배열의 4번째와 5번째 인덱스에 있다고 가정
         int randomIndex = Random.Range(4, 6); // 4 또는 5 중 랜덤한 값을 생성
