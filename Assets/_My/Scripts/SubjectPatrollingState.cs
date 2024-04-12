@@ -69,6 +69,8 @@ public class SubjectPatrollingState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.SetDestination(agent.transform.position);
+
+        SoundManager.instance.SubjectChannel.Stop();
     }
 }
 

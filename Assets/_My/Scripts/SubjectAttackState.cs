@@ -21,8 +21,7 @@ public class SubjectAttackState : StateMachineBehaviour
         //sound
         if (SoundManager.instance.SubjectChannel.isPlaying == false)
         {
-            SoundManager.instance.SubjectChannel.clip = SoundManager.instance.SubjectAttack;
-            SoundManager.instance.SubjectChannel.PlayDelayed(1f);
+            SoundManager.instance.SubjectChannel.PlayOneShot(SoundManager.instance.SubjectAttack);
         }
 
 
@@ -43,10 +42,14 @@ public class SubjectAttackState : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        
         Vector3 direction = player.position - agent.transform.position;
         agent.transform.rotation = Quaternion.LookRotation(direction);
-
         var yRotation = agent.transform.eulerAngles.y;
         agent.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        
+        SoundManager.instance.SubjectChannel.Stop();
     }
+
 }

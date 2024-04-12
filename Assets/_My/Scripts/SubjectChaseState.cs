@@ -29,8 +29,7 @@ public class SubjectChaseState : StateMachineBehaviour
         //sound
         if (SoundManager.instance.SubjectChannel.isPlaying == false)
         {
-            SoundManager.instance.SubjectChannel.clip = SoundManager.instance.SubjectChase;
-            SoundManager.instance.SubjectChannel.PlayDelayed(1f);
+            SoundManager.instance.SubjectChannel.PlayOneShot(SoundManager.instance.SubjectChase);
         }
 
 
@@ -56,6 +55,8 @@ public class SubjectChaseState : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(animator.transform.position); 
+        agent.SetDestination(animator.transform.position);
+
+        SoundManager.instance.SubjectChannel.Stop();
     }
 }
