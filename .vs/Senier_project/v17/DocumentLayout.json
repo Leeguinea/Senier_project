@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|c:\\users\\areyo\\unityprojects\\senier_project\\assets\\ui\\scripts\\noticemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\scripts\\noticemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|c:\\users\\areyo\\unityprojects\\senier_project\\assets\\ui\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|c:\\users\\areyo\\unityprojects\\senier_project\\assets\\ui\\scripts\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\ui\\scripts\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NoticeMessage.cs",
+              "DocumentMoniker": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\Assets\\UI\\Scripts\\NoticeMessage.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\Scripts\\NoticeMessage.cs",
+              "ToolTip": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\Assets\\UI\\Scripts\\NoticeMessage.cs",
+              "RelativeToolTip": "Assets\\UI\\Scripts\\NoticeMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T13:23:23.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoadScene.cs",
+              "DocumentMoniker": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\Assets\\UI\\Scripts\\LoadScene.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\Scripts\\LoadScene.cs",
+              "ToolTip": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\Assets\\UI\\Scripts\\LoadScene.cs",
+              "RelativeToolTip": "Assets\\UI\\Scripts\\LoadScene.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T13:23:21.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameOverUI.cs",
+              "DocumentMoniker": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\Assets\\UI\\Scripts\\GameOverUI.cs",
+              "RelativeDocumentMoniker": "Assets\\UI\\Scripts\\GameOverUI.cs",
+              "ToolTip": "C:\\Users\\areyo\\UnityProjects\\Senier_project\\Assets\\UI\\Scripts\\GameOverUI.cs",
+              "RelativeToolTip": "Assets\\UI\\Scripts\\GameOverUI.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T13:23:17.28Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
