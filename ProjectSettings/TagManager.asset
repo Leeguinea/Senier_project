@@ -12,6 +12,9 @@ TagManager:
   - Heal
   - Boss
   - BossHead
+  - Subject
+  - Paper
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -22,8 +25,8 @@ TagManager:
   - Ground
   - wall
   - Cloud
-  - 
-  - 
+  - Interactable
+  - Player
   - 
   - 
   - 
