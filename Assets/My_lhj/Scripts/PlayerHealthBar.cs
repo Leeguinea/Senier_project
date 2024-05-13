@@ -25,15 +25,6 @@ public class PlayerHealthBar : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
 
-        //Test
-        if (Input.GetKeyDown(KeyCode.V))  //체력 감소 - 공격당함
-        {
-            TakeDamage(Random.Range(5, 10));
-        }
-        if (Input.GetKeyDown(KeyCode.B))  //체력 회복 - 힐팩
-        {
-            RestoreHealth(Random.Range(5, 10));
-        }
     }
 
     public void UpdateHealthUI()  //플레이어 체력바 UI
