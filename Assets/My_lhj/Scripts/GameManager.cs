@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletText.text = currentBullet + " / ¡Ä"; //+ maxBullet;
+        bulletText.text = currentBullet + " "; //+ maxBullet;
     }
 
     //ÃÑ_±â´É

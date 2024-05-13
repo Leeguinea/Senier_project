@@ -25,6 +25,11 @@ public class PlayerBody : MonoBehaviour
         }
     }
 
+    private void playerDead()
+    {
+        
+    }
+
     private IEnumerator BloodyScreenEffect()
     {
         if (bloodyScreen.activeInHierarchy == false)
