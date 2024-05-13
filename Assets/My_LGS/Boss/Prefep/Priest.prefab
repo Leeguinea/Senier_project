@@ -44726,6 +44726,7 @@ GameObject:
   - component: {fileID: 7251276678477824718}
   - component: {fileID: 8480992797800653698}
   - component: {fileID: 497797009691544863}
+  - component: {fileID: 8710400030975402635}
   m_Layer: 3
   m_Name: Priest
   m_TagString: Boss
@@ -44784,10 +44785,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c23a345d11102c47be0c62b02bb0127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCollider: {fileID: 0}
   headObject: {fileID: 4925384188456861304}
   headCollider: {fileID: 8186554630791834587}
   headShotCnt: 0
+  effectObject: {fileID: 0}
   rotationSpeed: 2
+  isBossDyingAnimaion: 0
   damagePerSecond: 5
   damageDuration: 5
   damageInterval: 1
@@ -44838,6 +44842,33 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &8710400030975402635
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888905693628546932}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4925384188456861304
 GameObject:
   m_ObjectHideFlags: 0
