@@ -5,19 +5,28 @@ using UnityEngine.UI;
 
 public class PlayerBody : MonoBehaviour
 {
+    public PlayerHealthBar playerHealthBar;
     public int HP = 100;
     public GameObject bloodyScreen;
+
+    private void Start()
+    {
+        playerHealthBar = GetComponent<PlayerHealthBar>();
+    }
 
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
-
-        if(HP <= 0)
+        if (playerHealthBar != null)
         {
-            print("Player Dead");
-            //플레이어 dead 코드
+            playerHealthBar.TakeDamage(damageAmount);
         }
 
+        if (HP <= 0)
+        {
+            print("Player Dead");
+            // 플레이어 dead 코드
+        }
         else
         {
             print("Player Hit");
