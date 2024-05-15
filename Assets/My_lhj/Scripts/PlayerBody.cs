@@ -41,7 +41,7 @@ public class PlayerBody : MonoBehaviour
 
         // Set the initial alpha value to 1 (fully visible).
         Color startColor = image.color;
-        startColor.a = 1f;
+        startColor.a = 2f;
         image.color = startColor;
 
         float duration = 3f;
