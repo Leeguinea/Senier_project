@@ -17,7 +17,8 @@ public class GameOverUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIBox.SetActive(false);
+        UIBox.SetActive(true);
+        DontDestroyOnLoad(gameObject); //씬 전환 시, 오브젝트 파괴가 되지 않도록 함.
     }
 
 
@@ -42,6 +43,6 @@ public class GameOverUI : MonoBehaviour
         UIText2.text = message2;
         UIBox.SetActive(true);
 
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; //게임 일시 정지
     }
 }

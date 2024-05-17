@@ -15,6 +15,8 @@ TagManager:
   - Subject
   - Paper
   - Door
+  - SubjectHand
+  - Waypoints
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - Cloud
   - Interactable
   - Player
-  - 
+  - UI
   - 
   - 
   - 

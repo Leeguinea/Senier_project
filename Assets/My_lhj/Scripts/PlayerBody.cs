@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Scene 관리를 위해 추가
 
 public class PlayerBody : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerBody : MonoBehaviour
         {
             print("Player Dead");
             // 플레이어 dead 코드
+            playerDead(); // HP가 0 이하일 때 playerDead 메소드 호출
         }
         else
         {
@@ -36,8 +38,15 @@ public class PlayerBody : MonoBehaviour
 
     private void playerDead()
     {
-        
+        // 캐릭터가 죽었을 때 게임 오버 씬으로 전환
+        Invoke("LoadGameOverScene", 1f); // 1초 후에 게임 오버 씬으로 전환
     }
+
+    void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("GameOverScene"); // 게임 오버 씬 로드
+    }
+
 
     private IEnumerator BloodyScreenEffect()
     {
