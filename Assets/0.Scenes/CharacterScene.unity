@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce376ce87c79124a9f1d909f7c6a610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2
   maxHealth: 100
   chipSpeed: 2
   frontHealthBar: {fileID: 1063010493}
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthBar: {fileID: 0}
-  HP: 100
+  HP: 2
   bloodyScreen: {fileID: 943057720}
 --- !u!1 &286074437
 GameObject:
