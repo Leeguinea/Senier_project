@@ -16,7 +16,7 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (isPaused)
             {
@@ -35,8 +35,8 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
         CameraFixer.FixCamera();
 
-        //Cursor.lockState = CursorLockMode.None; // 마우스 커서 잠금 해제
-        //Cursor.visible = true; // 마우스 커서 표시
+        Cursor.lockState = CursorLockMode.None; // 마우스 커서 잠금 해제
+        Cursor.visible = true; // 마우스 커서 표시
 
     }
 
@@ -47,8 +47,8 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         CameraFixer.UnfixCamera(); // CameraFixer 클래스의 정적 메서드 호출
 
-        //Cursor.lockState = CursorLockMode.Locked; // 마우스 커서 잠금
-        //Cursor.visible = false; // 마우스 커서 숨기기
+        Cursor.lockState = CursorLockMode.Locked; // 마우스 커서 잠금
+        Cursor.visible = false; // 마우스 커서 숨기기
 
     }
 
