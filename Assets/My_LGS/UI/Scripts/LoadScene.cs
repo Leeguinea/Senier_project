@@ -5,25 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+   public void LoadMainMenu()
     {
-        
+        SceneManager.LoadScene("MainMenu");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+    public void LoadStage1()
+    {
+        SceneManager.LoadScene("stage1");
     }
+
+
+    public void LoadStage2()
+    {
+        SceneManager.LoadScene("stage2");
+    }
+
+
+    public void LoadStage3()
+    {
+        SceneManager.LoadScene("stage3");
+    }
+
 
     public void LoadEndingScene()
     {
         SceneManager.LoadScene("EndingScene");
     }
 
-    public void LoadGameOverScene()
-    {
-        SceneManager.LoadScene("GameOverScene");
-    }
 }

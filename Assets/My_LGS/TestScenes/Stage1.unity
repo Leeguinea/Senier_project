@@ -291,6 +291,50 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &874541938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874541939}
+  - component: {fileID: 874541940}
+  m_Layer: 0
+  m_Name: LoadSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874541939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874541938}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 600.9041, y: 261.73608, z: -0.07773018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2836889538490325541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874541940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874541938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ba8f3b8dcbb64408701c0baa22079f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1154852901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3595402487385473476, guid: 8bb58d393aa307d4db9b15319697ca84,
@@ -653,6 +697,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &2061604700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2642747215664861245, guid: 610abdf8b3e73124a836dc3c42517458,
+    type: 3}
+  m_PrefabInstance: {fileID: 1223311143705541949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2135289235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7514079895843968934, guid: 8bb58d393aa307d4db9b15319697ca84,
@@ -754,6 +804,7 @@ GameObject:
   - component: {fileID: 2330063031529842848}
   - component: {fileID: 5313233718609343030}
   - component: {fileID: 6402445040528493797}
+  - component: {fileID: 6402445040528493798}
   m_Layer: 5
   m_Name: GotoMainMenuButton
   m_TagString: Untagged
@@ -845,6 +896,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ------- UI -------------
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933558758213659165, guid: 610abdf8b3e73124a836dc3c42517458,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9004650523529239239, guid: 610abdf8b3e73124a836dc3c42517458,
         type: 3}
@@ -992,7 +1048,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8437180193269873245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8437180193269873246}
+        m_TargetAssemblyTypeName: OnclickMenu, Assembly-CSharp
+        m_MethodName: OnSaveButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1690563389126673057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,8 +1349,8 @@ Transform:
   - {fileID: 4833984075443780461}
   - {fileID: 883137971155334553}
   - {fileID: 8911738510548523972}
-  - {fileID: 9109693047966234443}
   - {fileID: 471416438}
+  - {fileID: 874541939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2876714071950511208
@@ -1354,7 +1422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3376706165525914417
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1743,18 +1811,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6021101067265385065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8761693259832289340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ba8f3b8dcbb64408701c0baa22079f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &6331853475677527281
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1775,6 +1831,7 @@ GameObject:
   - component: {fileID: 1538506459559962787}
   - component: {fileID: 3997621055704396816}
   - component: {fileID: 9083189808925133042}
+  - component: {fileID: 9083189808925133043}
   m_Layer: 5
   m_Name: LoadButton
   m_TagString: Untagged
@@ -1825,7 +1882,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5313233718609343030}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6402445040528493798}
+        m_TargetAssemblyTypeName: OnclickMenu, Assembly-CSharp
+        m_MethodName: OnGotoMainMenuButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6402445040528493798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779794087258355711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b52ecf33709f8247b58403f9a1e8c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  loadScene: {fileID: 0}
+  LoadSceneManager: {fileID: 0}
 --- !u!114 &6598780081325595721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,13 +1954,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9044349276834458314}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 9044349276834458315}
+        m_TargetAssemblyTypeName: OnclickMenu, Assembly-CSharp
+        m_MethodName: OnContinueButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1977,13 +2061,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3231135924250840072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b52ecf33709f8247b58403f9a1e8c29, type: 3}
+  m_Script: {fileID: 11500000, guid: 41782ab8d9304c242bc58979a0218cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContinueButton: {fileID: 9044349276834458314}
-  LoadButton: {fileID: 6364776730824064983}
-  SaveButton: {fileID: 8418266419054241066}
-  GotoMainMenuButton: {fileID: 779794087258355711}
+  pauseMenuUI: {fileID: 574847172892078511}
+  playerUI: {fileID: 2061604700}
+  isPaused: 0
 --- !u!114 &7738152908752637786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,6 +2293,7 @@ GameObject:
   - component: {fileID: 3517225215265346709}
   - component: {fileID: 8437180193269873245}
   - component: {fileID: 1645272316598925350}
+  - component: {fileID: 8437180193269873246}
   m_Layer: 5
   m_Name: SaveButton
   m_TagString: Untagged
@@ -2247,6 +2331,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8437180193269873246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418266419054241066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b52ecf33709f8247b58403f9a1e8c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  loadScene: {fileID: 0}
+  LoadSceneManager: {fileID: 0}
 --- !u!224 &8579808758559202053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2300,23 +2399,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &8761693259832289340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9109693047966234443}
-  - component: {fileID: 6021101067265385065}
-  m_Layer: 0
-  m_Name: LoadManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &8911738510548523972
 Transform:
   m_ObjectHideFlags: 0
@@ -2344,6 +2426,7 @@ GameObject:
   - component: {fileID: 3471392470776847451}
   - component: {fileID: 3140051325938847566}
   - component: {fileID: 6598780081325595721}
+  - component: {fileID: 9044349276834458315}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -2351,6 +2434,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9044349276834458315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044349276834458314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b52ecf33709f8247b58403f9a1e8c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  loadScene: {fileID: 0}
+  LoadSceneManager: {fileID: 0}
 --- !u!114 &9083189808925133042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,22 +2492,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3997621055704396816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!4 &9109693047966234443
-Transform:
+      m_Calls:
+      - m_Target: {fileID: 9083189808925133043}
+        m_TargetAssemblyTypeName: OnclickMenu, Assembly-CSharp
+        m_MethodName: OnLoadButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9083189808925133043
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8761693259832289340}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2836889538490325541}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6364776730824064983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b52ecf33709f8247b58403f9a1e8c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  loadScene: {fileID: 0}
+  LoadSceneManager: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
