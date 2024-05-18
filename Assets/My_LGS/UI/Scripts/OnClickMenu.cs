@@ -6,19 +6,7 @@ using UnityEngine.SceneManagement;
 public class OnClickMenu : MonoBehaviour
 {
     public PauseMenu pauseMenu;
-    public LoadScene loadScene;
-    public GameObject LoadSceneManager;
-
-    void Start()
-    {
-        loadScene = LoadSceneManager.GetComponent<LoadScene>();
-
-        if (loadScene == null)
-        {
-            Debug.LogError("LoadScene component is not assigned.");
-        }
-
-    }
+    public SaveLoadManager saveLoadManager;
 
 
     // 게임 이어하기 버튼
@@ -35,7 +23,7 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 게임 불러오기");
 
-
+        saveLoadManager.LoadGame();
     }
 
 
@@ -44,7 +32,7 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 게임 저장하기");
 
-        
+        saveLoadManager.SaveGame();
     }
 
 
@@ -53,7 +41,7 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 새게임 시작");
 
-        loadScene.LoadStage1();
+        
     }
 
 
@@ -62,7 +50,7 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 메인메뉴로 이동");
 
-        loadScene.LoadMainMenu();
+        SceneManager.LoadScene("MainMenu");
     }
 
 

@@ -94,7 +94,6 @@ public class InteractScripts : MonoBehaviour
                 // 포탈 오브젝트 상호작용
                 if (hit.collider.CompareTag("Potal"))
                 {
-                    Debug.Log("포탈 충돌 확인");
                     hit.collider.transform.GetComponentInParent<LoadScene>().LoadEndingScene(); // 엔딩씬으로 이동
                 }
             }

@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
     private float targetDelay = 0.5f;  //update 시간.
 
     private CapsuleCollider enemyCollider;
-    
+    public string uniqueID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,9 @@ public class Enemy : MonoBehaviour
         targetPlayer = GameObject.FindWithTag("Player");
 
         InitEnemyHP();
+
+        // uniqueID를 할당
+        uniqueID = System.Guid.NewGuid().ToString();
     }
 
     // Update is called once per frame

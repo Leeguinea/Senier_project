@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0.Scenes/GameOverScene.unity
     guid: acaff31f11816cd439d8e10c588c37cc
+  - enabled: 1
+    path: Assets/My_LGS/TestScenes/MainMenu.unity
+    guid: ba2368645c3aa67408dece41007b4d8c
+  - enabled: 1
+    path: Assets/My_LGS/TestScenes/Stage1.unity
+    guid: 6095c009fa99cf443abcb12c74eab9a6
+  - enabled: 1
+    path: Assets/My_LGS/TestScenes/Stage2.unity
+    guid: c3c68dd2211064d459def99643a6429e
+  - enabled: 1
+    path: Assets/My_LGS/TestScenes/Stage3.unity
+    guid: e38bcb2c642600647a9fc19e46d68a81
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

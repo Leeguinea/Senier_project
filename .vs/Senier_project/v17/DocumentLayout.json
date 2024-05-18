@@ -3,24 +3,48 @@
   "WorkspaceRootPath": "D:\\git\\UnityProjects\\Senier_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\onclickmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\onclickmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\potal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\potal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lgs\\ui\\scripts\\saveloadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\saveloadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\enemydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\enemydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\objectinteractiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\objectinteractiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\onclickmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\onclickmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\ui\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\pausemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +54,146 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoadScene.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T12:26:19.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameData.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\GameData.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\GameData.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\GameData.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\GameData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T11:18:15.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Potal.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\Potal.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\Potal.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\Potal.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\Potal.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvxcAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T10:54:10.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "SaveLoadManager.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T10:14:37.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnemyData.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\EnemyData.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\EnemyData.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\EnemyData.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\EnemyData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T10:13:09.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ObjectInteractionData.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\ObjectInteractionData.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\ObjectInteractionData.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\ObjectInteractionData.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\ObjectInteractionData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T10:13:06.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlayerData.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\PlayerData.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\PlayerData.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\PlayerData.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\PlayerData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T10:09:34.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "InteractObjects.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\InteractObjects.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\Objects\\01.Scripts\\InteractObjects.cs",
               "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\InteractObjects.cs",
               "RelativeToolTip": "Assets\\My_LGS\\Objects\\01.Scripts\\InteractObjects.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEEAAAA0AAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAIwGAAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T17:23:00.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoadScene.cs",
-              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
-              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
-              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
-              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\LoadScene.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T17:06:59.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\Objects\\01.Scripts\\PauseMenu.cs",
               "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\PauseMenu.cs",
               "RelativeToolTip": "Assets\\My_LGS\\Objects\\01.Scripts\\PauseMenu.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T17:27:33.199Z"
+              "WhenOpened": "2024-05-17T17:27:33.199Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "OnClickMenu.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\OnClickMenu.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\OnClickMenu.cs",
               "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\OnClickMenu.cs",
               "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\OnClickMenu.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAQAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvxwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T16:43:39.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T16:43:39.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "PauseManager.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\PauseManager.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\PauseManager.cs",
               "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\PauseManager.cs",
               "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\PauseManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T12:58:48.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T12:58:48.975Z"
             }
           ]
         }
