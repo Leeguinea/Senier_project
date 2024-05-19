@@ -94,7 +94,11 @@ public class InteractScripts : MonoBehaviour
                 // 포탈 오브젝트 상호작용
                 if (hit.collider.CompareTag("Potal"))
                 {
-                    hit.collider.transform.GetComponentInParent<LoadScene>().LoadEndingScene(); // 엔딩씬으로 이동
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        hit.collider.transform.GetComponentInParent<Portal>().usePortal(); // 포탈을 사용하여 다음 씬으로
+
+                    }
                 }
             }
             else

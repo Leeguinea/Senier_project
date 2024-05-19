@@ -54,16 +54,19 @@ public class ActivateExit : MonoBehaviour
             if (this.gameObject.name == "Lever1")
             {
                 exitDoor.LeverTrigerOn(1);
+                GetComponent<BoxCollider>().enabled = false;
             }
 
             if (this.gameObject.name == "Lever2")
             {
                 exitDoor.LeverTrigerOn(2);
+                GetComponent<BoxCollider>().enabled = false;
             }
 
             if (this.gameObject.name == "Lever3")
             {
                 exitDoor.LeverTrigerOn(3);
+                GetComponent<BoxCollider>().enabled = false;
             }
 
         }

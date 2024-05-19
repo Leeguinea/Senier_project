@@ -12,6 +12,9 @@ public class PauseMenu : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = false; // 마우스 커서 비활성화
+        Cursor.lockState = CursorLockMode.Locked; // 커서 고정
+
         if (pauseMenuUI == null)
         {
             Debug.LogError("Pause Menu UI is not assigned in the inspector!");
@@ -57,6 +60,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         playerUI.SetActive(false);
+        Cursor.visible = true; // 마우스 커서 활성화
+        Cursor.lockState = CursorLockMode.None; // 커서 비고정
     }
 
 
@@ -65,6 +70,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         playerUI.SetActive(true);
+        Cursor.visible = false; // 마우스 커서 비활성화
+        Cursor.lockState = CursorLockMode.Locked; // 커서 고정
     }
 
 

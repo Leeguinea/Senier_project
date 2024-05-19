@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class OnClickMenu : MonoBehaviour
 {
-    public PauseMenu pauseMenu;
     public SaveLoadManager saveLoadManager;
 
 
@@ -41,7 +40,8 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 새게임 시작");
 
-        
+        saveLoadManager.DeleteSaveFile(); // 세이브 파일 삭제
+        SceneManager.LoadScene("Stage1"); // 스테이지 1씬으로 이동
     }
 
 
