@@ -47,7 +47,7 @@ public class SaveLoadManager : MonoBehaviour
             return;
         }
 
-        // platerBodt에서 플레이어 체력 참조
+        // platerBody에서 플레이어 체력 참조
         playerBody = playerTransform.GetComponent<PlayerBody>();
         if (playerBody != null)
         {
