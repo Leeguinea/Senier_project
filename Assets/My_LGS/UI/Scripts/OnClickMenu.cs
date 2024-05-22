@@ -8,6 +8,19 @@ public class OnClickMenu : MonoBehaviour
     public SaveLoadManager saveLoadManager;
 
 
+    private void Start()
+    {
+        if (saveLoadManager == null)
+        {
+            saveLoadManager = FindObjectOfType<SaveLoadManager>();
+            if (saveLoadManager == null)
+            {
+                Debug.LogError("SaveLoadManager is not found in the scene.");
+            }
+        }
+    }
+
+
     // 게임 이어하기 버튼
     public void OnContinueButtonClicked() 
     {
@@ -22,7 +35,15 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 게임 불러오기");
 
-        saveLoadManager.LoadGame();
+        if (saveLoadManager != null)
+        {
+            saveLoadManager.LoadLastSavedScene();
+            saveLoadManager.LoadPlayerData();
+        }
+        else
+        {
+            Debug.LogError("SaveLoadManager is not assigned.");
+        }
     }
 
 
@@ -31,7 +52,14 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 게임 저장하기");
 
-        saveLoadManager.SaveGame();
+        if (saveLoadManager != null)
+        {
+            saveLoadManager.SaveData();
+        }
+        else
+        {
+            Debug.LogError("SaveLoadManager is not assigned.");
+        }
     }
 
 
@@ -40,7 +68,15 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 새게임 시작");
 
-        saveLoadManager.DeleteSaveFile(); // 세이브 파일 삭제
+        if (saveLoadManager != null)
+        {
+            saveLoadManager.DeleteSaveFile(); // 세이브 파일 삭제
+        }
+        else
+        {
+            Debug.LogError("SaveLoadManager is not assigned.");
+        }
+
         SceneManager.LoadScene("Stage1"); // 스테이지 1씬으로 이동
     }
 

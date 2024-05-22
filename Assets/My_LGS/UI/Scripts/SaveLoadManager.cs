@@ -5,81 +5,88 @@ using UnityEngine.SceneManagement;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    public Transform playerTransform;
-    public int playerHP;
-    public int playerAmmo;
-    public GameObject[] enemies;
-    public GameObject[] interactableObjects;
+    public Transform playerTransform;   // 플레이어의 위치와 회전
 
-    private string saveFilePath;
+    private int bulletCnt;              // 플레이어의 탄약 수
+    public GameManager gameManager;
+
+    private float playerHP;             // 플레이어의 체력 상태
+    public GameObject playerObject;
+    private PlayerBody playerBody;
+
+    private PlayerData playerData;  // 플레이어 데이터 저장을 위한 변수
+    private string saveFilePath;    // 세이브 파일 경로
+    private string lastSavedScene;  // 마지막으로 저장된 scene 이름
+
 
     private void Awake()
     {
         saveFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+        LoadPlayerHPandBullet(); // 게임 시작 시 게임 불러오기
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-
-    // 포탈 이동시, 이전 구역 위치 보존
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        LoadGame();
-
-        // 포탈 정보를 통해 플레이어 위치와 회전 복원
-        if (PlayerPrefs.HasKey("LastPortalScene"))
+        // GameManager를 찾아서 참조
+        gameManager = FindObjectOfType<GameManager>();
+        if (gameManager == null)
         {
-            string lastPortalScene = PlayerPrefs.GetString("LastPortalScene");
+            Debug.LogError("GameManager reference is not set in SaveLoadManager.");
+            return;
+        }
 
-            if (lastPortalScene == SceneManager.GetActiveScene().name)
-            {
-                float posX = PlayerPrefs.GetFloat("LastPortalPosX");
-                float posY = PlayerPrefs.GetFloat("LastPortalPosY");
-                float posZ = PlayerPrefs.GetFloat("LastPortalPosZ");
-                float rotX = PlayerPrefs.GetFloat("LastPortalRotX");
-                float rotY = PlayerPrefs.GetFloat("LastPortalRotY");
-                float rotZ = PlayerPrefs.GetFloat("LastPortalRotZ");
+        // gameManager에서 탄약 수 참조
+        bulletCnt = gameManager.CurrentBullet;
 
-                playerTransform.position = new Vector3(posX, posY, posZ);
-                playerTransform.rotation = Quaternion.Euler(rotX, rotY, rotZ);
 
-                // 포탈 정보를 삭제하여 반복 로드를 방지
-                PlayerPrefs.DeleteKey("LastPortalScene");
-                PlayerPrefs.DeleteKey("LastPortalPosX");
-                PlayerPrefs.DeleteKey("LastPortalPosY");
-                PlayerPrefs.DeleteKey("LastPortalPosZ");
-                PlayerPrefs.DeleteKey("LastPortalRotX");
-                PlayerPrefs.DeleteKey("LastPortalRotY");
-                PlayerPrefs.DeleteKey("LastPortalRotZ");
-            }
+        // 플레이어 위치 참조
+        if (playerTransform == null)
+        {
+            Debug.LogError("PlayerObject is not assigned.");
+            return;
+        }
+
+        // platerBodt에서 플레이어 체력 참조
+        playerBody = playerTransform.GetComponent<PlayerBody>();
+        if (playerBody != null)
+        {
+            playerHP = playerBody.HP;
+        }
+        else
+        {
+            Debug.LogError("PlayerBody component not found on playerObject.");
+        }
+
+        // 현재 씬이 stage1, stage2, stage3인 경우에만 세이브
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Stage1" || currentSceneName == "Stage2" || currentSceneName == "Stage3")
+        {
+            SaveData();
+        }
+        else
+        {
+            Debug.LogWarning("Cannot save in this scene.");
         }
     }
 
 
-    // 게임 저장하기
-    public void SaveGame()
+    // 전체 데이터 저장하기 (플레이어 위치, HP, 잔탄수)
+    public void SaveData()
     {
+        // 플레이어 데이터 설정
+        playerData = new PlayerData();
+        playerData.SaveData(playerTransform, playerHP, bulletCnt);
+
+        // 현재 씬 저장
+        lastSavedScene = SceneManager.GetActiveScene().name;
+
+        // 게임 데이터 생성
         GameData gameData = new GameData();
+        gameData.playerData = playerData;
+        gameData.lastSavedScene = lastSavedScene;
 
-        // Save player data
-        gameData.playerData = new PlayerData();
-        gameData.playerData.SaveData(playerTransform, playerHP, playerAmmo);
-
-        // Save enemies data
-        gameData.enemiesData = EnemyData.SaveData(enemies);
-
-        // Save interactable objects data
-        gameData.objectsData = ObjectData.SaveData(interactableObjects);
-
-        // Serialize to JSON and save to file
+        // JSON으로 직렬화하여 저장
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(saveFilePath, json);
 
@@ -87,33 +94,82 @@ public class SaveLoadManager : MonoBehaviour
     }
 
 
-    // 게임 불러오기
-    public void LoadGame()
+    public void SaveHPandBullet()
+    {
+        // 플레이어 데이터 설정
+        playerData = new PlayerData();
+        playerData.SaveHPandBullet(playerHP, bulletCnt);
+
+        // 게임 데이터 생성
+        GameData gameData = new GameData();
+        gameData.playerData = playerData;
+
+        // JSON으로 직렬화하여 저장
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(saveFilePath, json);
+
+        Debug.Log("Game Saved");
+    }
+
+
+    // 데이터 불러오기 (플레이어, 위치, HP, 탄약수)
+    public void LoadPlayerData()
     {
         if (File.Exists(saveFilePath))
         {
+            // 세이브 파일이 존재할 경우 데이터 불러오기
             string json = File.ReadAllText(saveFilePath);
             GameData gameData = JsonUtility.FromJson<GameData>(json);
 
-            // Load player data
+            // 플레이어 데이터 불러오기
             if (gameData.playerData != null)
             {
-                gameData.playerData.LoadData(playerTransform, ref playerHP, ref playerAmmo);
+                gameData.playerData.LoadData(playerTransform, ref playerHP, ref bulletCnt);
             }
+        }
+        else
+        {
+            Debug.LogWarning("Save file not found");
+        }
+    }
 
-            // Load enemies data
-            if (gameData.enemiesData != null)
+    // 데이터 불러오기 (플레이어 HP, 탄약 수)
+    public void LoadPlayerHPandBullet()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            // 세이브 파일이 존재할 경우 데이터 불러오기
+            string json = File.ReadAllText(saveFilePath);
+            GameData gameData = JsonUtility.FromJson<GameData>(json);
+
+            // 플레이어 데이터 불러오기
+            if (gameData.playerData != null)
             {
-                EnemyData.LoadData(gameData.enemiesData, enemies);
+                gameData.playerData.LoadHPandBullet(ref playerHP, ref bulletCnt);
             }
+        }
+        else
+        {
+            Debug.LogWarning("Save file not found");
+        }
+    }
 
-            // Load interactable objects data
-            if (gameData.objectsData != null)
+
+    //마지막으로 저장된 씬 불러오기
+    public void LoadLastSavedScene()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            // 세이브 파일이 존재할 경우 데이터 불러오기
+            string json = File.ReadAllText(saveFilePath);
+            GameData gameData = JsonUtility.FromJson<GameData>(json);
+
+
+            // 마지막으로 저장된 씬으로 이동
+            if (!string.IsNullOrEmpty(gameData.lastSavedScene))
             {
-                ObjectData.LoadData(gameData.objectsData, interactableObjects);
+                SceneManager.LoadScene(gameData.lastSavedScene);
             }
-
-            Debug.Log("Game Loaded");
         }
         else
         {
@@ -128,6 +184,7 @@ public class SaveLoadManager : MonoBehaviour
         if (File.Exists(saveFilePath))
         {
             File.Delete(saveFilePath);
+            Debug.Log("Save file is deleted");
         }
     }
 

@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject bloodSprayEffect;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,5 +143,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(EnemySpawn());  // 재귀적으로 코루틴 실행
     }*/
 
-    
+
+    public int CurrentBullet
+    {
+        get { return currentBullet; }
+    }
 }

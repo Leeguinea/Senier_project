@@ -3,24 +3,40 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public Vector3 position;
-    public Vector3 rotation;
-    public int hp;
-    public int ammo;
+    public Vector3 playerPosition;  // 플레이어의 위치
+    public Vector3 playerrotation;  // 플레이어의 회전
+    public float playerHP;          // 플레이어의 체력
+    public int bulletCnt;           // 플레이어의 탄약 수
 
-    public void SaveData(Transform playerTransform, int playerHP, int playerAmmo)
+    public void SaveData(Transform playerTransform, float hp, int bullets)
     {
-        position = playerTransform.position;
-        rotation = playerTransform.rotation.eulerAngles;
-        hp = playerHP;
-        ammo = playerAmmo;
+        // 데이터 세이브
+        playerPosition = playerTransform.position; // 플레이어의 위치 저장
+        //playerrotation = playerTransform.rotation.eulerAngles; // 플레이어의 회전 저장
+        playerHP = hp; // 플레이어의 체력 저장
+        bulletCnt = bullets; // 플레이어의 탄약 수 저장
     }
 
-    public void LoadData(Transform playerTransform, ref int playerHP, ref int playerAmmo)
+    public void SaveHPandBullet(float hp, int bullets)
     {
-        playerTransform.position = position;
-        playerTransform.rotation = Quaternion.Euler(rotation);
-        playerHP = hp;
-        playerAmmo = ammo;
+        // 데이터 세이브
+        playerHP = hp; // 플레이어의 체력 저장
+        bulletCnt = bullets; // 플레이어의 탄약 수 저장
+    }
+
+    public void LoadData(Transform playerTransform, ref float hp, ref int bullets)
+    {
+        //데이터 로드
+        playerTransform.position = playerPosition; // 저장된 위치로 플레이어 이동
+        //playerTransform.rotation = Quaternion.Euler(playerrotation); // 저장된 회전으로 플레이어 회전
+        hp = playerHP; // 저장된 체력
+        bullets = bulletCnt; // 저장된 탄약 수
+    }
+
+    public void LoadHPandBullet(ref float hp, ref int bullets)
+    {
+        //데이터 로드
+        hp = playerHP; // 저장된 체력
+        bullets = bulletCnt; // 저장된 탄약 수
     }
 }

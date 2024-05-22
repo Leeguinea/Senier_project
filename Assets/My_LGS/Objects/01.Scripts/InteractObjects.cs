@@ -96,7 +96,7 @@ public class InteractScripts : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.F))
                     {
-                        hit.collider.transform.GetComponentInParent<Portal>().usePortal(); // 포탈을 사용하여 다음 씬으로
+                        hit.collider.transform.GetComponentInParent<Portal>().UsePortal(); // 포탈을 사용하여 다음 씬으로
 
                     }
                 }
