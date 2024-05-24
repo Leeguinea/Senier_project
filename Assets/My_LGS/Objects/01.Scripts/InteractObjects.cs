@@ -8,14 +8,19 @@ using UnityEngine.UI;
 //플레이어가 오블젝트와 상호작용을 하기 위한 스크립트
 //지속적으로 플레이어와 오브젝트의 콜라이더가 충돌하는지 확인하고 
 //필요한 클래스의 함수들을 가져와서 각 오브젝트들과 상호작용
-public class InteractScripts : MonoBehaviour
+public class InteractObjects : MonoBehaviour
 {
     public GameObject aimingUI;             // 에이밍 UI
-    public float interactionDistance = 5f; // 상호작용 거리
+    public float interactionDistance = 5f;  // 상호작용 거리
     public float interactionDuration = 2f;  // 상호작용 시간
 
     private Color interactionColor = new Vector4(0.5f, 0.5f, 0.5f, 1.0f);  // 상호작용 가능할 때의 색깔
     private Color originalColor = new Vector4(1, 1, 1, 1); // 원래 색깔
+
+    // 카드키 소유 여부
+    public bool haskey1 = false;
+    public bool haskey2 = false;
+    public bool haskey3 = false;
 
     void Start()
     {
@@ -86,7 +91,7 @@ public class InteractScripts : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.F)) // F키를 눌러 오브젝트 상호작용                   
                     {
-                        hit.collider.transform.GetComponentInParent<ActivateExit>().ChangeLeverState(); // 레버를 열고 닫는 함수 실행
+                        hit.collider.transform.GetComponentInParent<Lever>().ChangeLeverState(); // 레버를 열고 닫는 함수 실행
                     }
                 }
 
@@ -100,6 +105,56 @@ public class InteractScripts : MonoBehaviour
 
                     }
                 }
+
+
+                // 키 카드 엑세스 머신과 상호작용
+                if (hit.collider.CompareTag("AccessMachine"))
+                {
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        if (hit.collider.name == "GateAccessMachine_01")
+                        {
+                            if (haskey1 == true) // 1번 카드키를 가지고 있다면
+                            {
+                                // 1번 키카드 엑세스 머신을 활성화
+                                hit.collider.transform.GetComponent<GateAccessMachine>().ChangeMachineState(1);
+                            }
+                            else 
+                            {
+                                hit.collider.transform.GetComponent<GateAccessMachine>().FailChange(); // 실패음 재생
+                                //Debug.Log("1번 카드키 없음. 엑세스 불가.");
+                            }
+                        }
+                        if (hit.collider.name == "GateAccessMachine_02")
+                        {
+                            if (haskey2 == true) // 2번 카드키를 가지고 있다면
+                            {
+                                // 2번 키카드 엑세스 머신을 활성화
+                                hit.collider.transform.GetComponent<GateAccessMachine>().ChangeMachineState(2);
+                            }
+                            else 
+                            {
+                                hit.collider.transform.GetComponent<GateAccessMachine>().FailChange(); // 실패음 재생
+                                //Debug.Log("2번 카드키 없음. 엑세스 불가.");
+                            }
+                        }
+                        if (hit.collider.name == "GateAccessMachine_03")
+                        {
+                            if (haskey3 == true) // 3번 카드키를 가지고 있다면
+                            {
+                                // 1번 키카드 엑세스 머신을 활성화
+                                hit.collider.transform.GetComponent<GateAccessMachine>().ChangeMachineState(3);
+                            }
+                            else 
+                            {
+                                hit.collider.transform.GetComponent<GateAccessMachine>().FailChange(); // 실패음 재생
+                                //Debug.Log("3번 카드키 없음. 엑세스 불가.");
+                            }
+                        }
+
+                    }
+                }
+
             }
             else
             {

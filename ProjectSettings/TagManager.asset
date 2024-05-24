@@ -18,6 +18,7 @@ TagManager:
   - SubjectHand
   - Waypoints
   - GameManager
+  - AccessMachine
   layers:
   - Default
   - TransparentFX
