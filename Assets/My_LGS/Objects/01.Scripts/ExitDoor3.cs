@@ -12,9 +12,11 @@ public class ExitDoor3 : MonoBehaviour
     public bool triger1 = false;        // 트리거 머신 1
     public bool triger2 = false;        // 트리거 머신 2
     public bool triger3 = false;        // 트리거 머신 3
-    public AudioSource doorOpenSound;   // 문이 열릴 때 재생할 오디오 소스
 
-    private bool isDoorOpened = false;  // 문이 열렸는지 확인
+    [Header("Sound Effect")]
+    public AudioSource gateOpenSound;   // 문이 열릴 때 재생할 오디오 소스
+
+    private bool isGateOpened = false;  // 문이 열렸는지 확인
     
 
     void Start()
@@ -29,7 +31,7 @@ public class ExitDoor3 : MonoBehaviour
 
     void Update()
     {
-        if (triger1 && triger2 && triger3 && !isDoorOpened)
+        if (triger1 && triger2 && triger3 && !isGateOpened)
         {
             OpenDoor();
         }
@@ -89,10 +91,10 @@ public class ExitDoor3 : MonoBehaviour
     private void OpenDoor()
     {
         // 문 여는 로직 구현
-        isDoorOpened = true;
-        if (doorOpenSound != null)
+        isGateOpened = true;
+        if (gateOpenSound != null)
         {
-            doorOpenSound.Play();
+            gateOpenSound.Play();
         }
 
         Debug.Log("세번째 게이트 개문");

@@ -10,14 +10,18 @@ using UnityEngine.UI;
 //필요한 클래스의 함수들을 가져와서 각 오브젝트들과 상호작용
 public class InteractObjects : MonoBehaviour
 {
+    [Header("Aim")]
     public GameObject aimingUI;             // 에이밍 UI
+
+    [Header("Interact Setting")]
     public float interactionDistance = 5f;  // 상호작용 거리
     public float interactionDuration = 2f;  // 상호작용 시간
+    public AudioSource earnItemSound;
 
     private Color interactionColor = new Vector4(0.5f, 0.5f, 0.5f, 1.0f);  // 상호작용 가능할 때의 색깔
     private Color originalColor = new Vector4(1, 1, 1, 1); // 원래 색깔
 
-    // 카드키 소유 여부
+    [Header("Card Key")] // 카드키 소유 여부
     public bool haskey1 = false;
     public bool haskey2 = false;
     public bool haskey3 = false;
@@ -91,7 +95,7 @@ public class InteractObjects : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.F)) // F키를 눌러 오브젝트 상호작용                   
                     {
-                        hit.collider.transform.GetComponentInParent<Lever>().ChangeLeverState(); // 레버를 열고 닫는 함수 실행
+                        hit.collider.transform.GetComponentInParent<Lever>().ChangeLeverState(1); // 레버를 열고 닫는 함수 실행
                     }
                 }
 
@@ -177,6 +181,12 @@ public class InteractObjects : MonoBehaviour
 
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            earnItemSound.Play();
+        }
+    }
 
 }

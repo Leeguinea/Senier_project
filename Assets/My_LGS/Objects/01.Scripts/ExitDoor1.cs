@@ -13,6 +13,8 @@ public class ExitDoor1 : MonoBehaviour
     //public bool triger2 = false;
     //public bool triger3 = false;
 
+    [Header("Sound Effect")]
+    public AudioSource gateOpenSound;   // 문이 열릴 때 재생할 오디오 소스
 
     void Start()
     {
@@ -38,6 +40,8 @@ public class ExitDoor1 : MonoBehaviour
             Exitani1.SetBool("LeverTriger1_isOn", true);
             triger1 = true;
             //Debug.Log("레버 트리거1 활성화");
+
+            gateOpenSound.Play();
         }
 
         /*
@@ -54,28 +58,31 @@ public class ExitDoor1 : MonoBehaviour
         */
     }
 
+
     public void LeverTrigerOff(int LeverTriger_Number)
     {
         int num = LeverTriger_Number;
 
-        if (num == 1){
+        if (num == 1)
+        {
             Exitani1.SetBool("LeverTriger1_isOn", false);
-            triger1 = false;
-            //Debug.Log("레버 트리거1 비활성화");
+            triger1 = true;
+            //Debug.Log("레버 트리거1 활성화");
+
+            gateOpenSound.Play();
         }
 
         /*
         if (num == 2){
             Exitani.SetBool("LeverTriger2_isOn", false);
-            triger2 = false;
-            //Debug.Log("레버 트리거2 비활성화");
+            triger2 = true;
+            //Debug.Log("레버 트리거2 활성화");
         }
         if (num == 3){
             Exitani.SetBool("LeverTriger3_isOn", false);
-            triger3 = false;
-            //Debug.Log("레버 트리거3 비활성화");
+            triger3 = true;
+            //Debug.Log("레버 트리거3 활성화");
         }
         */
     }
-
 }

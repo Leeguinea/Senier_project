@@ -13,6 +13,8 @@ public class ExitDoor2 : MonoBehaviour
     //public bool triger2 = false;
     //public bool triger3 = false;
 
+    [Header("Sound Effect")]
+    public AudioSource gateOpenSound;   // 문이 열릴 때 재생할 오디오 소스
 
     void Start()
     {
