@@ -290,7 +290,7 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
         }
-
+        //점프!!!!!!!!!!!!!!!!!!!!!
         private void JumpAndGravity()
         {
             if (Grounded)

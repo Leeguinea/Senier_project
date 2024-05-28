@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-// ----- Low Poly FPS Pack Free Version -----
 public class HandgunScriptLPFP : MonoBehaviour {
 
 	//Animator component attached to weapon
@@ -398,11 +397,20 @@ public class HandgunScriptLPFP : MonoBehaviour {
 				Spawnpoints.casingSpawnPoint.transform.rotation);
 		}
 
-		//Inspect weapon when pressing T key
-		if (Input.GetKeyDown (KeyCode.T)) 
+        //점프ㅡ!!!!!!
+       /*
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger("");
+        }
+	   */
+
+        //Inspect weapon when pressing T key
+        if (Input.GetKeyDown (KeyCode.T)) 
 		{
 			anim.SetTrigger ("Inspect");
 		}
+
 
 		//Toggle weapon holster when pressing E key
 		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
@@ -527,8 +535,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		outOfAmmo = false;
 	}
 
-	//Reload
-	private void Reload () {
+
+    private void Reload () {
 		
 		if (outOfAmmo == true) 
 		{
