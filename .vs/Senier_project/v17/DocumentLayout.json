@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "D:\\git\\UnityProjects\\Senier_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\lever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\lever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\interactobjects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\gateaccessmachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\gateaccessmachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lgs\\objects\\01.scripts\\lever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\objects\\01.scripts\\lever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|D:\\git\\UnityProjects\\Senier_project\\assets\\my_lgs\\objects\\01.scripts\\exitdoor1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -82,18 +82,17 @@
               "RelativeToolTip": "Assets\\My_LGS\\Objects\\01.Scripts\\ExitDoor1.cs",
               "ViewState": "AQIAADgAAAAAAAAAAAAYwFQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T09:28:13.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T09:28:13.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Lever.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\Lever.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\Objects\\01.Scripts\\Lever.cs",
               "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\Lever.cs",
               "RelativeToolTip": "Assets\\My_LGS\\Objects\\01.Scripts\\Lever.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAADwv0EAAAAFAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAADwvxwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T08:13:23.384Z",
               "EditorCaption": ""
@@ -124,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GateAccessMachine.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\GateAccessMachine.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\Objects\\01.Scripts\\GateAccessMachine.cs",
@@ -132,12 +131,11 @@
               "RelativeToolTip": "Assets\\My_LGS\\Objects\\01.Scripts\\GateAccessMachine.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T08:11:38.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T08:11:38.921Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "InteractObjects.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\InteractObjects.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\Objects\\01.Scripts\\InteractObjects.cs",
@@ -150,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Keycard.cs",
               "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Objects\\01.Scripts\\Keycard.cs",
               "RelativeDocumentMoniker": "Assets\\My_LGS\\Objects\\01.Scripts\\Keycard.cs",
@@ -158,8 +156,7 @@
               "RelativeToolTip": "Assets\\My_LGS\\Objects\\01.Scripts\\Keycard.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAIwCMAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T07:19:22.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T07:19:22.591Z"
             }
           ]
         }
