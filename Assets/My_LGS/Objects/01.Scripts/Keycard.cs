@@ -37,19 +37,19 @@ public class Keycard : MonoBehaviour
         {
             if (this.gameObject.name == "Keycard_01") // Å°Ä«µå 01
             {
-                other.gameObject.GetComponent<InteractObjects>().haskey1 = true; // È¹µæ
+                other.gameObject.GetComponent<InteractObjects>().hasKey1 = true; // È¹µæ
                 gameObject.SetActive(false); // ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
                 Debug.Log("1¹ø Ä«µåÅ° È¹µæ");
             }
             if (this.gameObject.name == "Keycard_02") // Å°Ä«µå 02
             {
-                other.gameObject.GetComponent<InteractObjects>().haskey2 = true; // È¹µæ
+                other.gameObject.GetComponent<InteractObjects>().hasKey2 = true; // È¹µæ
                 gameObject.SetActive(false); // ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
                 Debug.Log("2¹ø Ä«µåÅ° È¹µæ");
             }
             if (this.gameObject.name == "Keycard_03") // Å°Ä«µå 03
             {
-                other.gameObject.GetComponent<InteractObjects>().haskey3 = true; // È¹µæ
+                other.gameObject.GetComponent<InteractObjects>().hasKey3 = true; // È¹µæ
                 gameObject.SetActive(false); // ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
                 Debug.Log("3¹ø Ä«µåÅ° È¹µæ");
             }

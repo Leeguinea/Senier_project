@@ -41,43 +41,7 @@ public class ExitDoor2 : MonoBehaviour
             triger1 = true;
             //Debug.Log("레버 트리거1 활성화");
         }
-
-        /*
-        if (num == 2){
-            Exitani.SetBool("LeverTriger2_isOn", true);
-            triger2 = true;
-            //Debug.Log("레버 트리거2 활성화");
-        }
-        if (num == 3){
-            Exitani.SetBool("LeverTriger3_isOn", true);
-            triger3 = true;
-            //Debug.Log("레버 트리거3 활성화");
-        }
-        */
     }
 
-    public void RechargeTrigerOff(int LeverTriger_Number)
-    {
-        int num = LeverTriger_Number;
-
-        if (num == 1){
-            Exitani2.SetBool("RechargeTriger1_isOn", false);
-            triger1 = false;
-            //Debug.Log("레버 트리거1 비활성화");
-        }
-
-        /*
-        if (num == 2){
-            Exitani.SetBool("LeverTriger2_isOn", false);
-            triger2 = false;
-            //Debug.Log("레버 트리거2 비활성화");
-        }
-        if (num == 3){
-            Exitani.SetBool("LeverTriger3_isOn", false);
-            triger3 = false;
-            //Debug.Log("레버 트리거3 비활성화");
-        }
-        */
-    }
 
 }

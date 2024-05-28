@@ -429,6 +429,7 @@ MonoBehaviour:
   aimingUI: {fileID: 1216937109}
   interactionDistance: 5
   interactionDuration: 2
+  earnItemSound: {fileID: 0}
   haskey1: 0
   haskey2: 0
   haskey3: 0
@@ -1611,7 +1612,7 @@ GameObject:
   - component: {fileID: 4141152342673263205}
   - component: {fileID: 5490780907455922577}
   m_Layer: 0
-  m_Name: ExitGate
+  m_Name: ExitGate1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2498,7 +2499,7 @@ Animator:
   m_GameObject: {fileID: 1083233028452520028}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0a43d21c5e23f44194c3d69c4f62f0b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34d0c9efa9957d647a2b2ddb617a649f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2795,6 +2796,7 @@ MonoBehaviour:
   triger1: 0
   triger2: 0
   triger3: 0
+  gateOpenSound: {fileID: 0}
 --- !u!224 &5512772723287953040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3281,8 +3283,9 @@ MonoBehaviour:
   Activate: 0
   ActivateAngle: 60
   UnActivateAngle: -60
-  smoot: 3
+  smooth: 3
   exitDoor1: {fileID: 0}
+  LeverSound: {fileID: 0}
 --- !u!33 &7711935733652823072
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -21,10 +21,11 @@ public class InteractObjects : MonoBehaviour
     private Color interactionColor = new Vector4(0.5f, 0.5f, 0.5f, 1.0f);  // 상호작용 가능할 때의 색깔
     private Color originalColor = new Vector4(1, 1, 1, 1); // 원래 색깔
 
-    [Header("Card Key")] // 카드키 소유 여부
-    public bool haskey1 = false;
-    public bool haskey2 = false;
-    public bool haskey3 = false;
+    [Header("Has Item")] // 카드키 소유 여부
+    public bool hasKey1 = false;
+    public bool hasKey2 = false;
+    public bool hasKey3 = false;
+    public bool hasBattery = false;
 
     void Start()
     {
@@ -118,7 +119,7 @@ public class InteractObjects : MonoBehaviour
                     {
                         if (hit.collider.name == "GateAccessMachine_01")
                         {
-                            if (haskey1 == true) // 1번 카드키를 가지고 있다면
+                            if (hasKey1 == true) // 1번 카드키를 가지고 있다면
                             {
                                 // 1번 키카드 엑세스 머신을 활성화
                                 hit.collider.transform.GetComponent<GateAccessMachine>().ChangeMachineState(1);
@@ -131,7 +132,7 @@ public class InteractObjects : MonoBehaviour
                         }
                         if (hit.collider.name == "GateAccessMachine_02")
                         {
-                            if (haskey2 == true) // 2번 카드키를 가지고 있다면
+                            if (hasKey2 == true) // 2번 카드키를 가지고 있다면
                             {
                                 // 2번 키카드 엑세스 머신을 활성화
                                 hit.collider.transform.GetComponent<GateAccessMachine>().ChangeMachineState(2);
@@ -144,7 +145,7 @@ public class InteractObjects : MonoBehaviour
                         }
                         if (hit.collider.name == "GateAccessMachine_03")
                         {
-                            if (haskey3 == true) // 3번 카드키를 가지고 있다면
+                            if (hasKey3 == true) // 3번 카드키를 가지고 있다면
                             {
                                 // 1번 키카드 엑세스 머신을 활성화
                                 hit.collider.transform.GetComponent<GateAccessMachine>().ChangeMachineState(3);
@@ -158,6 +159,43 @@ public class InteractObjects : MonoBehaviour
 
                     }
                 }
+
+
+                if (hit.collider.CompareTag("ChargeMachine"))
+                {
+                    if (hit.collider.name == "ChargedBattery") // 충전된 오브젝트
+                    {
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            hasBattery = true;
+                            hit.collider.gameObject.SetActive(false); //오브젝트를 비활성화
+
+                            earnItemSound.Play(); // 획득음
+                        }
+                    }
+
+                    if (hit.collider.name == "ChargeMachine")
+                    {
+                        if (hasBattery == true) // 배터리 소유 상태
+                        {
+                            if (Input.GetKeyDown(KeyCode.F))
+                            {
+                                hasBattery = false;
+
+                            }
+                        }
+                        else // 배터리 미소유 상태
+                        {
+                            if (Input.GetKeyDown(KeyCode.F))
+                            {
+
+                            }
+                        }
+                    }
+                }
+
+
+
 
             }
             else
