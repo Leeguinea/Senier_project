@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrollingTime: 10
-  detectionArea: 8
+  detectionArea: 5
   patrolSpeed: 1.5
 --- !u!91 &9100000
 AnimatorController:
