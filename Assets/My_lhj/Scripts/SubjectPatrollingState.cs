@@ -45,7 +45,7 @@ public class SubjectPatrollingState : StateMachineBehaviour
             SoundManager.instance.SubjectChannel.PlayDelayed(1f);
         }
 
-        // -- 웨이포잉ㄴ트 도착, 다음 웨이포인트로 이동 -- //
+        // -- 웨이포인트 도착, 다음 웨이포인트로 이동 -- //
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             agent.SetDestination(waypointList[Random.Range(0, waypointList.Count)].position);

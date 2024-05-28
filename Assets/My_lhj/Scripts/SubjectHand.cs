@@ -5,7 +5,7 @@ using UnityEngine;
 public class SubjectHand : MonoBehaviour
 {
     public int damage;
-    public int HP = 100;
+    public int HP = 10;
 
     public void TakeDamage(int damageAmount)
     {

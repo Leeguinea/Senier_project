@@ -5,7 +5,7 @@ using UnityEngine;
 public class Subject : MonoBehaviour
 {
     [SerializeField]
-    private int subjectMaxHP = 3;
+    private int subjectMaxHP = 10;
     public int subjectCurrentHP = 0;
     private Animator animator;
 
