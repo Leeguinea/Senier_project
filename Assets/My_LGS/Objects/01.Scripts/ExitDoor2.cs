@@ -9,9 +9,6 @@ public class ExitDoor2 : MonoBehaviour
 {
     [Header("ExitDoor2")]
     public Animator Exitani2;
-    public bool triger1 = false;
-    //public bool triger2 = false;
-    //public bool triger3 = false;
 
     [Header("Sound Effect")]
     public AudioSource gateOpenSound;   // 문이 열릴 때 재생할 오디오 소스
@@ -26,21 +23,16 @@ public class ExitDoor2 : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-    }
 
-
-    public void RechargeTrigerOn(int LeverTriger_Number)
+    public void RechargeTrigerOn(int RechargeTriger_Number)
     {
-        int num = LeverTriger_Number;
+        int num = RechargeTriger_Number;
 
         if (num == 1){
             Exitani2.SetBool("RechargeTriger1_isOn", true);
-            triger1 = true;
-            //Debug.Log("레버 트리거1 활성화");
+            //Debug.Log("충전지 머신 트리거1 활성화");
         }
+        gateOpenSound.Play();
     }
 
 
