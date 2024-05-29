@@ -278,12 +278,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		AnimationCheck ();
 
 		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.C) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 1", 0, 0f);
 		}
-		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
+		//Play knife attack 2 animation when E key is pressed
+		if (Input.GetKeyDown (KeyCode.V) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 2", 0, 0f);
 		}

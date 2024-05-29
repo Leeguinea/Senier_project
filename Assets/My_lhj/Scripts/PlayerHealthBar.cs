@@ -26,11 +26,11 @@ public class PlayerHealthBar : MonoBehaviour
         UpdateHealthUI();
 
         //Test
-        if (Input.GetKeyDown(KeyCode.V)) //체력 업
+        if (Input.GetKeyDown(KeyCode.O)) //체력 업
         {
             TakeDamage(Random.Range(5, 10));
         }
-        if (Input.GetKeyDown(KeyCode.B))  //체력 다운
+        if (Input.GetKeyDown(KeyCode.P))  //체력 다운
         {
             RestoreHealth(Random.Range(5, 10));
         }
