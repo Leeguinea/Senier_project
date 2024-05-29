@@ -10,11 +10,13 @@ public class Lever : MonoBehaviour
     public float UnActivateAngle = -60f;
     public float smooth = 3f;
 
-    public ExitDoor1 exitDoor1; // 컴포넌트 선언
-    private NoticeMessage noticeMessage; // 컴포넌트 선언
-
     [Header("Sound Effect")]
     public AudioSource LeverSound;  // 성공음
+
+    [Header("Gate1")]
+    public ExitDoor1 exitDoor1; // 컴포넌트 선언
+
+    private NoticeMessage noticeMessage; // 컴포넌트 선언
 
     private Quaternion targetRotation;
 

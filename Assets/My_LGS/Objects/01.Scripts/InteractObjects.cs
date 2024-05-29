@@ -29,7 +29,7 @@ public class InteractObjects : MonoBehaviour
 
     void Start()
     {
-        //originalColor = aimingUI.GetComponent<RawImage>().color; // 에이밍 UI의 원래 색상 저장
+        originalColor = aimingUI.GetComponent<RawImage>().color; // 에이밍 UI의 원래 색상 저장
         //Debug.Log(originalColor);
     }
 
@@ -174,14 +174,14 @@ public class InteractObjects : MonoBehaviour
                         }
                     }
 
-                    if (hit.collider.name == "ChargeMachine")
+                    if (hit.collider.name == "ChargeMachine") // 배터리 삽입할 오브젝트
                     {
                         if (hasBattery == true) // 배터리 소유 상태
                         {
                             if (Input.GetKeyDown(KeyCode.F))
                             {
+                                hit.collider.transform.GetComponent<ChargeMachine>().ChargingMachine();
                                 hasBattery = false;
-
                             }
                         }
                         else // 배터리 미소유 상태
