@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletManager : MonoBehaviour
+public class bullet : MonoBehaviour
 {
     private Rigidbody bulletRigibody;
     private BossEnemy bossEnemy;
@@ -83,28 +83,3 @@ public class BulletManager : MonoBehaviour
         DestroyBullet();  //파괴
     }
 }
-
-    /*
-    //BloodSpray_Effect
-    private void OnCollisionEnter(Collision objectWeHit)
-    {
-        if(objectWeHit.gameObject.CompareTag("Subject"))
-        {
-            CreateBloodSprayEffect(objectWeHit);
-
-        }
-    }
-
-    private void CreateBloodSprayEffect(Collision objectWeHit)
-    {
-        ContactPoint contact = objectWeHit.contacts[0];
-
-        GameObject bloodSprayPrefab = Instantiate(
-        GameManager.Instance.bloodSprayEffect,
-        contact.point, // 위치를 지정합니다.
-        Quaternion.LookRotation(contact.normal)
-        );
-
-        bloodSprayPrefab.transform.SetParent(objectWeHit.gameObject.transform);
-    }*/
-

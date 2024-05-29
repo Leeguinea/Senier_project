@@ -38,6 +38,7 @@ public class BulletScript : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
+		////////////////////// here!!/////////////////////////////////////////////////////////
 		//If bullet collides with "Metal" tag
 		if (collision.transform.tag == "Metal") 
 		{
@@ -49,18 +50,31 @@ public class BulletScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		//If bullet collides with "Target" tag
-		if (collision.transform.tag == "Target") 
+        //If bullet collides with "Target" tag
+        /*if (collision.transform.tag == "Target") 
 		{
 			//Toggle "isHit" on target object
 			collision.transform.gameObject.GetComponent
 				<TargetScript>().isHit = true;
 			//Destroy bullet object
 			Destroy(gameObject);
-		}
-			
-		//If bullet collides with "ExplosiveBarrel" tag
-		if (collision.transform.tag == "ExplosiveBarrel") 
+		}*/
+
+        //If bullet collides with "" tag
+        if (collision.transform.tag == "Subject")
+        {
+            // 데미지를 주는 코드 추가
+            int damage = 1; // 이 데미지 값을 조절하여 타겟에게 줄 데미지를 결정
+            collision.transform.gameObject.GetComponent<Subject>().TakeDamage(damage);
+
+            //Destroy bullet object
+            Destroy(gameObject);
+        }
+
+
+
+        //If bullet collides with "ExplosiveBarrel" tag
+        if (collision.transform.tag == "ExplosiveBarrel") 
 		{
 			//Toggle "explode" on explosive barrel object
 			collision.transform.gameObject.GetComponent
@@ -87,4 +101,3 @@ public class BulletScript : MonoBehaviour {
 		Destroy (gameObject);
 	}
 }
-// ----- Low Poly FPS Pack Free Version -----

@@ -21,6 +21,7 @@ TagManager:
   - AccessMachine
   - Item
   - ChargeMachine
+  - bullet
   layers:
   - Default
   - TransparentFX

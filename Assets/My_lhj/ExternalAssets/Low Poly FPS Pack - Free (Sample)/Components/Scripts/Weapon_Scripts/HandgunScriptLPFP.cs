@@ -397,13 +397,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 				Spawnpoints.casingSpawnPoint.transform.rotation);
 		}
 
-        //점프ㅡ!!!!!!
-       /*
-		if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetTrigger("");
-        }
-	   */
+      
 
         //Inspect weapon when pressing T key
         if (Input.GetKeyDown (KeyCode.T)) 
@@ -618,4 +612,3 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		}
 	}
 }
-// ----- Low Poly FPS Pack Free Version -----
