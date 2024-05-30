@@ -10,16 +10,13 @@ using UnityEngine.UI;
 //필요한 클래스의 함수들을 가져와서 각 오브젝트들과 상호작용
 public class InteractObjects : MonoBehaviour
 {
-    [Header("Aim")]
-    public GameObject aimingUI;             // 에이밍 UI
+    [Header("Interacted Aim")]
+    public GameObject InteractedAimUI;             // 에이밍 UI
 
     [Header("Interact Setting")]
     public float interactionDistance = 5f;  // 상호작용 거리
     public float interactionDuration = 2f;  // 상호작용 시간
     public AudioSource earnItemSound;
-
-    private Color interactionColor = new Vector4(0.5f, 0.5f, 0.5f, 1.0f);  // 상호작용 가능할 때의 색깔
-    private Color originalColor = new Vector4(1, 1, 1, 1); // 원래 색깔
 
     [Header("Has Item")] // 카드키 소유 여부
     public bool hasKey1 = false;
@@ -27,10 +24,16 @@ public class InteractObjects : MonoBehaviour
     public bool hasKey3 = false;
     public bool hasBattery = false;
 
+    NoticeMessage noticeMessage;
+
+    private void Awake()
+    {
+        noticeMessage = FindObjectOfType<NoticeMessage>();
+    }
+
     void Start()
     {
-        originalColor = aimingUI.GetComponent<RawImage>().color; // 에이밍 UI의 원래 색상 저장
-        //Debug.Log(originalColor);
+        InteractedAimUI.SetActive(false);
     }
 
     // 매 프레임당 한번씩 호출
@@ -67,8 +70,8 @@ public class InteractObjects : MonoBehaviour
 
             if (objectLayerName == "Interactable") // 상호작용 가능한 태그가 있는 오브젝트와 충돌했을 때
             {
-                // 상호작용 가능할 때의 색상으로 변경
-                aimingUI.GetComponent<RawImage>().color = interactionColor;
+                // 상호작용 가능할 때 상호작용 UI 활성화
+                InteractedAimUI.SetActive(true);
 
                 // 문서 오브젝트 상호작용
                 if (hit.collider.CompareTag("Paper"))
@@ -97,6 +100,8 @@ public class InteractObjects : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.F)) // F키를 눌러 오브젝트 상호작용                   
                     {
                         hit.collider.transform.GetComponentInParent<Lever>().ChangeLeverState(1); // 레버를 열고 닫는 함수 실행
+                        
+                        noticeMessage.DisplayNotice("레버 활성화");
                     }
                 }
 
@@ -188,7 +193,7 @@ public class InteractObjects : MonoBehaviour
                         {
                             if (Input.GetKeyDown(KeyCode.F))
                             {
-
+                                InteractedAimUI.SetActive(false);
                             }
                         }
                     }
@@ -203,16 +208,16 @@ public class InteractObjects : MonoBehaviour
                 // 레이캐스트가 충돌하지 않은 경우 디버그 라인을 그리지 않음
                 //Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.white);
 
-                // 상호작용 불가능할 때의 원래 색상으로 변경
-                aimingUI.GetComponent<RawImage>().color = originalColor;
+                // 상호작용 불가능할 때 상호작용 UI 비활성화
+                InteractedAimUI.SetActive(false);
             }
 
 
          }
         else
         {
-            // 레이어에 아무 오브젝트도 충돌하지 않으면 원래 색상으로 변경
-            aimingUI.GetComponent<RawImage>().color = originalColor;
+            // 레이어에 아무 오브젝트도 충돌하지 않으면 상호작용 UI 비활성화
+            InteractedAimUI.SetActive(false);
         }
 
 

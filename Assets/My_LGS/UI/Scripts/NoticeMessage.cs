@@ -1,61 +1,60 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NoticeMessage : MonoBehaviour
 {
     [Header("NoticeMessage")]
-    public GameObject noticeMessageBox;
-    public Text noticeMessagetext;
-    public Animator noticeMessageAni;
+    public GameObject Panel;
+    public TextMeshProUGUI MessageText;
+    public Animator NoticeMessageAnimator;
 
     // 코루틴 딜레이
-    private WaitForSeconds _UIDelay1 = new WaitForSeconds(1.0f);
+    private WaitForSeconds _UIDelay1 = new WaitForSeconds(2f); // 활성화 시간
     private WaitForSeconds _UIDelay2 = new WaitForSeconds(0.3f);
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (noticeMessageBox == null)
+        if (Panel == null)
         {
-            Debug.LogError("noticeMessageBox가 할당되지 않았습니다!");
+            Debug.LogError("Pannel가 할당되지 않았습니다!");
         }
-        
-        noticeMessageBox.SetActive(false); //알림창 비활성화
-    }
-
-    public void Notice(string message)
-    {
-        noticeMessagetext.text = message;
-        noticeMessageBox.SetActive(false);
-        StopAllCoroutines();
-
-        StartCoroutine(SubDelay()); //딜레이 실행
-    }
-
-    IEnumerator SubDelay()
-    {
-        noticeMessageBox.SetActive(true);     // 알림창 활성화
-        noticeMessageAni.SetBool("isOn", true);
-        yield return _UIDelay1;     // 2초후 실행
-
-        noticeMessageAni.SetBool("isOn", false);
-        yield return _UIDelay2;     // 0.3초후 실행
-        noticeMessageBox.SetActive(false);    // 알림창 비활성화
-    }
-
-    private void Update()
-    {
-        if (noticeMessageAni.GetBool("isOn") == true)
+        if (MessageText == null)
         {
-            //Debug.Log("isOn == true");
+            Debug.LogError("MessageText가 할당되지 않았습니다!");
+            return;
         }
-        else
+        if (NoticeMessageAnimator == null)
         {
-            //Debug.Log("isOn == false");
+            Debug.LogError("NoticeMessageAnimator가 할당되지 않았습니다!");
+            return;
         }
+
+        Panel.SetActive(false); // 알림창 비활성화
     }
+
+    public void DisplayNotice(string message)
+    {
+        MessageText.text = message;
+        Panel.SetActive(false);
+        StopAllCoroutines(); // 실행 중인 모든 코루틴을 중지합니다
+
+        StartCoroutine(DisplayAni()); // 알림을 표시하는 코루틴 시작
+    }
+
+    IEnumerator DisplayAni()
+    {
+        Panel.SetActive(true);      // 알림창 활성화
+        NoticeMessageAnimator.SetBool("isNotice", true);
+        yield return _UIDelay1;     // 딜레이 후 실행 (메시지 표시 시간)
+
+        NoticeMessageAnimator.SetBool("isNotice", false);
+        yield return _UIDelay2;     // 딜레이 후 실행 (비활성화 애니메이션 후, 패널 비활성화)
+        Panel.SetActive(false);     // 알림창 비활성화
+    }
+
 }
