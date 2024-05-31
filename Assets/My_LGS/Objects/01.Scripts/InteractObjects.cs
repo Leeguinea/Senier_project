@@ -39,6 +39,12 @@ public class InteractObjects : MonoBehaviour
     // 매 프레임당 한번씩 호출
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            // 게임이 일시정지된 경우, 키 입력 무시
+            return;
+        }
+
         // 플레이어 레이어의 인덱스 가져오기
         int playerLayerIndex = LayerMask.NameToLayer("Player");
 
@@ -79,7 +85,15 @@ public class InteractObjects : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.F)) // 'F'키를 눌렀을 때
                     {
                         // 상호작용 가능한 오브젝트와 상호작용하는 함수 호출
-                        hit.collider.GetComponent<PaperObjects>().isInteracting = true;
+                        if (hit.collider.GetComponent<PaperObjects>().isInteracting == false)
+                        {
+                            hit.collider.GetComponent<PaperObjects>().isInteracting = true;
+                        }
+                        else
+                        {
+                            hit.collider.GetComponent<PaperObjects>().isInteracting = false;
+                        }
+                        
                     }
                 }
 
@@ -166,6 +180,7 @@ public class InteractObjects : MonoBehaviour
                 }
 
 
+                // 충전지 게이트
                 if (hit.collider.CompareTag("ChargeMachine"))
                 {
                     if (hit.collider.name == "ChargedBattery") // 충전된 오브젝트

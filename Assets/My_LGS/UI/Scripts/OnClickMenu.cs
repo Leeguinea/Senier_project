@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class OnClickMenu : MonoBehaviour
 {
     public SaveLoadManager saveLoadManager;
-
+    PauseMenu pauseMenu;
 
     private void Start()
     {
@@ -18,6 +18,8 @@ public class OnClickMenu : MonoBehaviour
                 Debug.LogError("SaveLoadManager is not found in the scene.");
             }
         }
+
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
 
@@ -26,7 +28,7 @@ public class OnClickMenu : MonoBehaviour
     {
         Debug.Log("버튼클릭 : 게임 이어하기");
 
-        //pauseMenu.UnActivateMenu();
+        pauseMenu.UnActivateMenu();
     }
 
 

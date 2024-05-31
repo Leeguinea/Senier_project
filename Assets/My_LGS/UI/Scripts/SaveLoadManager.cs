@@ -2,61 +2,77 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    public Transform playerTransform;   // 플레이어의 위치와 회전
+    [Header("Player Position")]
+    public GameObject playerObject;     // 플레이어의 위치를 참조할 오브젝트
+    private Transform playerTransform;   // 플레이어의 위치와 회전에 대한 변수
 
-    private int bulletCnt;              // 플레이어의 탄약 수
-    public GameManager gameManager;
+    [Header("Bullet Count : CurrentAmmoText")]
+    public Text currentAmmoText;
+    private int bulletCnt;              // 플레이어의 탄약 수에 대한 변수
 
-    private float playerHP;             // 플레이어의 체력 상태
-    public GameObject playerObject;
-    private PlayerBody playerBody;
+    [Header("Player HP : arms_handgun_01")]
+    public PlayerBody playerBody;
+    private int playerHP;             // 플레이어의 체력에 대한 변수
 
+    // 세이브 로드와 관련 변수
     private PlayerData playerData;  // 플레이어 데이터 저장을 위한 변수
     private string saveFilePath;    // 세이브 파일 경로
     private string lastSavedScene;  // 마지막으로 저장된 scene 이름
+    
 
-
-    private void Awake()
+    void Awake()
     {
         saveFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
+        SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로드 이벤트 구독
     }
 
-    private void Start()
+
+    void Start()
     {
         LoadPlayerHPandBullet(); // 게임 시작 시 게임 불러오기
 
-        // GameManager를 찾아서 참조
-        gameManager = FindObjectOfType<GameManager>();
-        if (gameManager == null)
+
+        // 플레이어 위치 초기화
+        if (playerObject != null) // 플레이어 위치 미참조 시, 디버그 에러
         {
-            Debug.LogError("GameManager reference is not set in SaveLoadManager.");
-            return;
-        }
-
-        // gameManager에서 탄약 수 참조
-        bulletCnt = gameManager.CurrentBullet;
-
-
-        // 플레이어 위치 참조
-        if (playerTransform == null)
-        {
-            Debug.LogError("PlayerObject is not assigned.");
-            return;
-        }
-
-        // platerBody에서 플레이어 체력 참조
-        playerBody = playerTransform.GetComponent<PlayerBody>();
-        if (playerBody != null)
-        {
-            playerHP = playerBody.HP;
+            playerTransform = playerObject.transform;
+            Debug.Log("참조확인", playerTransform);
         }
         else
         {
-            Debug.LogError("PlayerBody component not found on playerObject.");
+            Debug.LogError("playerObject is not assigned.");
+            return;
         }
+        
+
+
+        // 탄약 수 초기화
+        if (currentAmmoText == null) // 플레이어 탄약 수 미참조 시, 디버그 에러
+        {
+            Debug.LogError("currentAmmoText reference is not set in SaveLoadManager.");
+            return;
+        }
+        else
+        {
+            bulletCnt = int.Parse(currentAmmoText.text); // 형변환 
+        }
+
+
+        // 플레이어 체력 초기화
+        if (playerBody != null) // 플레이어 체력 미참조 시, 디버그 에러
+        {
+            playerHP = playerBody.HP; //플레이어 체력 초기화
+        }
+        else
+        {
+            Debug.LogError("PlayerBody is not assigned.");
+            return;
+        }
+
 
         // 현재 씬이 stage1, stage2, stage3인 경우에만 세이브
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -71,26 +87,76 @@ public class SaveLoadManager : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        // 플레이어의 위치 실시간 반영
+        if (playerObject != null)
+        {
+            Transform currentTransform = playerObject.transform;
+            if (playerTransform != currentTransform)
+            {
+                playerTransform = currentTransform;
+                Debug.Log("Updated playerTransform : " + playerTransform);
+            }
+        }
+
+        // 플레이어의 체력 실시간 반영
+        if (playerBody != null)
+        {
+            int currentPlayerHP = playerBody.HP;
+            if (playerHP != currentPlayerHP)
+            {
+                playerHP = currentPlayerHP;
+                Debug.Log("Updated playerHP : " + playerHP);
+            }
+        }
+        else
+        {
+            Debug.Log("playerBody가 Null 상태");
+        }
+
+        // 탄약 수 실시간 반영
+        if (currentAmmoText != null)
+        {
+            int currentBulletCnt = int.Parse(currentAmmoText.text);
+            if (bulletCnt != currentBulletCnt)
+            {
+                bulletCnt = currentBulletCnt;
+                Debug.Log("Updated bulletCnt : " + bulletCnt);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F5)) // 'F'키를 눌렀을 때
+        {
+            SaveData();
+        }
+    }
+
     // 전체 데이터 저장하기 (플레이어 위치, HP, 잔탄수)
     public void SaveData()
     {
-        // 플레이어 데이터 설정
-        playerData = new PlayerData();
-        playerData.SaveData(playerTransform, playerHP, bulletCnt);
 
-        // 현재 씬 저장
-        lastSavedScene = SceneManager.GetActiveScene().name;
+        if (playerTransform != null)
+        {
+            playerData = new PlayerData();
+            playerData.SaveData(playerTransform, playerHP, bulletCnt);
 
-        // 게임 데이터 생성
-        GameData gameData = new GameData();
-        gameData.playerData = playerData;
-        gameData.lastSavedScene = lastSavedScene;
+            lastSavedScene = SceneManager.GetActiveScene().name;
 
-        // JSON으로 직렬화하여 저장
-        string json = JsonUtility.ToJson(gameData, true);
-        File.WriteAllText(saveFilePath, json);
+            GameData gameData = new GameData();
+            gameData.playerData = playerData;
+            gameData.lastSavedScene = lastSavedScene;
 
-        Debug.Log("Game Saved");
+            string json = JsonUtility.ToJson(gameData, true);
+            File.WriteAllText(saveFilePath, json);
+
+            Debug.Log("Game Saved");
+        }
+        else
+        {
+            Debug.LogError("Player Transform is null. Cannot save data.");
+        }
+
     }
 
 
@@ -175,6 +241,11 @@ public class SaveLoadManager : MonoBehaviour
         {
             Debug.LogWarning("Save file not found");
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoadPlayerHPandBullet(); // 씬 로드 시 데이터 불러오기
     }
 
 

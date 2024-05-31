@@ -12,8 +12,7 @@ public class PauseMenu : MonoBehaviour
     
     void Start()
     {
-        Cursor.visible = false; // 마우스 커서 비활성화
-        Cursor.lockState = CursorLockMode.Locked; // 커서 고정
+        ResumeGame();
 
         if (pauseMenuUI == null)
         {
@@ -24,23 +23,13 @@ public class PauseMenu : MonoBehaviour
             Debug.LogError("Player UI is not assigned in the inspector!");
         }
 
-        // 초기 UI 활성화 여부 체크
-        if (isPaused)
-        {
-            ActivateMenu();
-        }
-        else
-        {
-            pauseMenuUI.SetActive(false);
-            playerUI.SetActive(true);
-        }
     }
     
 
     void Update()
     {
-        // Q 키를 누르면 일시 정지 상태를 토글
-        if (Input.GetKeyDown(KeyCode.Q))
+        // Tab 키를 누르면 일시 정지 상태를 토글
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isPaused)
             {
