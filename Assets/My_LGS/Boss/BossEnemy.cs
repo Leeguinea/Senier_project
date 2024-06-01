@@ -13,39 +13,37 @@ public class BossEnemy : MonoBehaviour
     private GameObject targetPlayer;
     private float targetDelay = 0.5f;  //update 시간.
 
+    [Header("Boss Object and Animation")]
     private Animator animator;
-    public CapsuleCollider enemyCollider;
-    public GameObject headObject; //머리 오브젝트 변수
-    public Collider headCollider; //머리 콜라이더
-    public int headShotCnt = 0;   //보스 몹의 헤드샷 횟수
-    public GameObject effectObject; //이펙트
+    public CapsuleCollider bodyCollider;    //몸 콜라이더
+    public GameObject headObject;           //머리 오브젝트 변수
+    public Collider headCollider;           //머리 콜라이더
+    public int headShotCnt = 0;             //보스 몹의 헤드샷 횟수
 
-    GameOverUI gameOverUI;
-
+    [Header("Boss Move")]
     private bool isWalkingAnimationPlaying = false;
     public float rotationSpeed = 1.0f;
     public bool isBossDyingAnimaion = false;
-
-    //보스의 일정 범위의 지속 딜에 관한 변수
-    public float damagePerSecond = 5;     // 초당 데미지
-    public float damageDuration = 10f;   // 도트 데미지 지속 시간
+    
+    [Header("Boss Fire")] //보스의 일정 범위의 지속 딜에 관한 변수
+    public float damagePerSecond = 5;   // 초당 데미지
+    public float damageDuration = 10f;  // 도트 데미지 지속 시간
     public float damageInterval = 1f;   // 데미지 주기
     private float nextDamageTime;
 
-    Enemy enemyComponent;
-
-    [SerializeField]
-    private int bossMaxHP = 10000;
+    [Header("Boss HP")]
     public int bossCurrentHP = 10000;
+    private int bossMaxHP = 10000;
 
+    private GameObject effectObject; //이펙트
+
+    Enemy enemyComponent;
 
     void Start()
     {
-        gameOverUI = FindObjectOfType<GameOverUI>();
-
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponent<Animator>();
-        enemyCollider = GetComponent<CapsuleCollider>();
+        bodyCollider = GetComponent<CapsuleCollider>();
         headCollider = headObject.GetComponent<CapsuleCollider>();
 
         targetPlayer = GameObject.FindWithTag("Player");
@@ -62,11 +60,11 @@ public class BossEnemy : MonoBehaviour
         Debug.Log("보스의 hp : " + bossCurrentHP);
         //Debug.Log("BossEnemy 보스의 헤드샷 : " + headShotCnt);
         //agent.speed = 0;
-        Debug.Log("콜라이더 : " + enemyCollider.enabled);
+        Debug.Log("콜라이더 : " + bodyCollider.enabled);
 
         if (bossCurrentHP <= 0)
         {
-            enemyCollider.enabled = false;
+            bodyCollider.enabled = false;
             headCollider.enabled = false;
         }
 
@@ -130,8 +128,6 @@ public class BossEnemy : MonoBehaviour
         // 플레이어를 즉사시키는 애니메이션
 
 
-        // 게임오버 이미지 활성화 
-        gameOverUI.NoticeGameOver("DEFEAT", "실패하고 말았다.");
     }
 
     void DealDamageToEntitiesInRange()
