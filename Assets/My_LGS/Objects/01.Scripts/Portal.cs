@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
     public string targetScene;
-    public Vector3 targetPosition;
-    public Vector3 targetRotation;
 
     private SaveLoadManager saveLoadManager;
 
