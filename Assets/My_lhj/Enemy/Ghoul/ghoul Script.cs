@@ -19,6 +19,7 @@ public class ghoulScript : MonoBehaviour
 
     private bool isAttacking = false;
 
+
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -28,7 +29,12 @@ public class ghoulScript : MonoBehaviour
         targetPlayer = GameObject.FindWithTag("Player");
 
         InitEnemyHP();
+
+        // 장애물 회피 설정
+        agent.avoidancePriority = 50; // 장애물 회피 우선순위 설정
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance; // 장애물 회피
     }
+
 
     void Update()
     {
