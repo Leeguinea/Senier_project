@@ -12,6 +12,7 @@ public class BossEnemy : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private GameObject targetPlayer;
     private float targetDelay = 0.5f;  //update 시간.
+    public int damage = 1;  //플레이어에게 주는 damage
 
     [Header("Boss Object and Animation")]
     private Animator animator;
