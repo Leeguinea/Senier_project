@@ -15,30 +15,30 @@ public class BossEnemy : MonoBehaviour
     public int damage = 1;  //플레이어에게 주는 damage
 
     [Header("Boss Object and Animation")]
-    private Animator animator;
     public CapsuleCollider bodyCollider;    //몸 콜라이더
     public GameObject headObject;           //머리 오브젝트 변수
     public Collider headCollider;           //머리 콜라이더
     public int headShotCnt = 0;             //보스 몹의 헤드샷 횟수
+    private Animator animator;
 
-    [Header("Boss Move")]
+    //[Header("Boss Move")]
+    //public float rotationSpeed = 1.0f;
+    private bool isBossDyingAnimaion = false;
     private bool isWalkingAnimationPlaying = false;
-    public float rotationSpeed = 1.0f;
-    public bool isBossDyingAnimaion = false;
-    
+
     [Header("Boss Fire")] //보스의 일정 범위의 지속 딜에 관한 변수
-    public float damagePerSecond = 5;   // 초당 데미지
-    public float damageDuration = 10f;  // 도트 데미지 지속 시간
-    public float damageInterval = 1f;   // 데미지 주기
+    public GameObject effectObject; //이펙트
+    public float damagePerSecond = 1;   // 초당 데미지
+    public float damageDuration = 2f;  // 도트 데미지 지속 시간
+    public float damageInterval = 3f;   // 데미지 주기
+    public float damageRange = 5.0f;
     private float nextDamageTime;
 
     [Header("Boss HP")]
     public int bossCurrentHP = 10000;
     private int bossMaxHP = 10000;
 
-    private GameObject effectObject; //이펙트
 
-    Enemy enemyComponent;
 
     void Start()
     {
@@ -48,45 +48,24 @@ public class BossEnemy : MonoBehaviour
         headCollider = headObject.GetComponent<CapsuleCollider>();
 
         targetPlayer = GameObject.FindWithTag("Player");
-        enemyComponent = GetComponent<Enemy>();
 
         nextDamageTime = Time.time;
 
         InitEnemyHP();
+        StartCoroutine(DealDamagePeriodically());
     }
 
 
     void Update()
     {
-        Debug.Log("보스의 hp : " + bossCurrentHP);
-        //Debug.Log("BossEnemy 보스의 헤드샷 : " + headShotCnt);
-        //agent.speed = 0;
-        Debug.Log("콜라이더 : " + bodyCollider.enabled);
-
-        if (bossCurrentHP <= 0)
-        {
-            bodyCollider.enabled = false;
-            headCollider.enabled = false;
-        }
-
-
-        if (isBossDyingAnimaion == true)  //보스의 HP가 0이하로 떨어질 시
-        {
-            BossDie();
-            //Debug.Log(isBossDyingAnimaion);
-        }
-
+        /*
         if (Time.time >= nextDamageTime)
         {
             DealDamageToEntitiesInRange();
             nextDamageTime = Time.time + damageInterval; // 다음 데미지 주기 설정
         }
-
-        if (headShotCnt >= 2) //헤드샷의 카운트가 5번을 넘어가면 무력화
-        {         
-            StartCoroutine(HeadShotBoss());
-        }
-
+        */
+        
         if (targetPlayer != null)  //적이 플레이어를 바라보게 만듦
         {
             float maxDelay = 0.5f;
@@ -99,13 +78,11 @@ public class BossEnemy : MonoBehaviour
 
             agent.destination = targetPlayer.transform.position; //적의 목적지는 플레이어
             transform.LookAt(targetPlayer.transform.position); //플레이어를 바라보게 함
-            RotateTowardsPlayer();
 
             // 플레이어와의 거리 계산
             float speed = agent.velocity.sqrMagnitude;
             bool isRange = Vector3.Distance(transform.position, targetPlayer.transform.position) <= agent.stoppingDistance;
             float distance = Vector3.Distance(transform.position, targetPlayer.transform.position);
-            //Debug.Log("플레이어와 적 사이의 거리: " + distance.ToString("F2"));
 
             //적의 Nav Mesh Agent > Stopping Distance거리에 도달하면 공격
             if (isRange | distance < 1.0f)  
@@ -130,10 +107,19 @@ public class BossEnemy : MonoBehaviour
 
 
     }
+    IEnumerator DealDamagePeriodically()
+    {
+        while (true)
+        {
+            DealDamageToEntitiesInRange();
+            yield return new WaitForSeconds(damageInterval);
+        }
+    }
+
 
     void DealDamageToEntitiesInRange()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.localScale.x * 5);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.localScale.x * damageRange);
 
         foreach (Collider collider in colliders)
         {
@@ -141,7 +127,7 @@ public class BossEnemy : MonoBehaviour
             // 도트 데미지 지속 시간 동안 데미지를 주도록 함
             if (collider.CompareTag("Enemy"))
             {
-                collider.gameObject.GetComponent<Enemy>().enemyCurrentHP -= ((int)(damagePerSecond * damageInterval));
+                collider.gameObject.GetComponent<Subject>().TakeDamage((int)(damagePerSecond * damageInterval));
                 StartCoroutine(ApplyDamageOverTime(collider.gameObject));
             }
 
@@ -210,16 +196,14 @@ public class BossEnemy : MonoBehaviour
         Debug.Log("보스 사망 함수" + isBossDyingAnimaion);
 
         StartCoroutine(BossDying());
-        //InitEnemyHP(); //체력 초기화
-
-
+        InitEnemyHP(); //체력 초기화
     }
 
     IEnumerator BossDying()  //코루틴 사용_적이 사망하고 애니메이션 실행까지 대기 후, 소멸 
     {
-        
-        //enemyCollider.enabled = false;          //콜라이더 비활성화
-        //headCollider.enabled = false;           //헤드 콜라이더 비활성
+
+        bodyCollider.enabled = false;           //콜라이더 비활성화
+        headCollider.enabled = false;           //헤드 콜라이더 비활성
         targetPlayer = null;                    //타켓 비활성
         agent.isStopped = true;                 //이동중지
         animator.SetBool("IsWalking", false);   //걷기 애니메이션 중지
@@ -242,14 +226,11 @@ public class BossEnemy : MonoBehaviour
 
         InitEnemyHP(); //체력 초기화
 
-        
-        //enemyCollider.enabled = true;                    //콜라이더도 활성화
-        //headCollider.enabled = true;                     //헤드 콜라이더 활성화
+        bodyCollider.enabled = true;                     //콜라이더도 활성화
+        headCollider.enabled = true;                     //헤드 콜라이더 활성화
         targetPlayer = GameObject.FindWithTag("Player"); //타겟 플레이어
         agent.isStopped = false;                         //이동시작
         animator.SetBool("IsWalking", true);             //걷기 애니메이션 재생
-        
-
     }
 
 
@@ -262,15 +243,29 @@ public class BossEnemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         bossCurrentHP = bossCurrentHP - damage;
+
+        Debug.Log("피격");
+        Debug.Log("헤드샷 카운트 : ");
+        Debug.Log("보스의 hp : " + bossCurrentHP);
+
+        if (bossCurrentHP <= 0)
+        {
+            if (isBossDyingAnimaion == true)  //보스의 HP가 0이하로 떨어질 시
+            {
+                BossDie();
+            }
+        }
+
+        if (headShotCnt >= 5) //헤드샷의 카운트가 5번을 넘어가면 무력화
+        {
+            StartCoroutine(HeadShotBoss());
+        }
     }
-
-
-    void RotateTowardsPlayer()
+    private void OnDrawGizmos()
     {
-        Vector3 targetDirection = (targetPlayer.transform.position - transform.position).normalized;
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        // Gizmo로 데미지 범위를 시각화
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, damageRange);
     }
-
 
 }
