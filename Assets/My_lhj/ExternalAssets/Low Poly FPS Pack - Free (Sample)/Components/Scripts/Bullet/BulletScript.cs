@@ -84,12 +84,13 @@ public class BulletScript : MonoBehaviour {
         //If bullet collides with "Ghoul" tag
         if (collision.transform.tag == "ghoul")
         {
-            int damage = 10; 
-            collision.transform.gameObject.GetComponent<ghoul>().TakeDamage(damage);
+            int damage = 10;
+            collision.transform.gameObject.GetComponent<ghoulScript>().TakeDamage(damage);
 
             //Destroy bullet object
             Destroy(gameObject);
         }
+
 
 
         //If bullet collides with "ExplosiveBarrel" tag

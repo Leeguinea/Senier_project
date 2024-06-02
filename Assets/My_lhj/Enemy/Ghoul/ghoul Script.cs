@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class ghoul : MonoBehaviour
+public class ghoulScript : MonoBehaviour
 {
     [SerializeField]
     private int enemyMaxHP = 1;
@@ -59,7 +59,7 @@ public class ghoul : MonoBehaviour
         animator.SetTrigger("Die");
         enemyCollider.enabled = false; // 콜라이더 비활성화
 
-        yield return new WaitForSeconds(2f);  //사망 후 3 초 대기
+        yield return new WaitForSeconds(0f);  //사망 후 3 초 대기
         //Destroy(gameObject);  //오브젝트 파괴
         gameObject.SetActive(false);  //콜라이더 컴포넌트 파괴(비활성화)
         InitEnemyHP();  //적이 죽고 체력 초기화 
@@ -103,3 +103,4 @@ public class ghoul : MonoBehaviour
         }
     }
 }
+
