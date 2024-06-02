@@ -380,7 +380,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 					}
 				}
 			}
-				
+
+			//
 			//Spawn bullet at bullet spawnpoint
 			var bullet = (Transform)Instantiate (
 				Prefabs.bulletPrefab,

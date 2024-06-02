@@ -71,7 +71,7 @@ public class BulletScript : MonoBehaviour {
             Destroy(gameObject);
         }
 
-
+		//보스
 
         //If bullet collides with "ExplosiveBarrel" tag
         if (collision.transform.tag == "ExplosiveBarrel") 
