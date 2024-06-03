@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// ----- Low Poly FPS Pack Free Version -----
+
 public class BulletScript : MonoBehaviour {
 
 	[Range(5, 100)]
@@ -50,22 +50,42 @@ public class BulletScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-        //If bullet collides with "Target" tag
-        /*if (collision.transform.tag == "Target") 
-		{
-			//Toggle "isHit" on target object
-			collision.transform.gameObject.GetComponent
-				<TargetScript>().isHit = true;
-			//Destroy bullet object
-			Destroy(gameObject);
-		}*/
-
         //If bullet collides with "" tag
+		//subject
         if (collision.transform.tag == "Subject")
         {
             // 데미지를 주는 코드 추가
             int damage = 1; // 이 데미지 값을 조절하여 타겟에게 줄 데미지를 결정
             collision.transform.gameObject.GetComponent<Subject>().TakeDamage(damage);
+
+            //Destroy bullet object
+            Destroy(gameObject);
+        }
+
+        //보스
+        if (collision.transform.tag == "Boss") // 보스의 몸통
+        {
+            Debug.Log("피격");
+            collision.transform.gameObject.GetComponent<BossEnemy>().TakeDamage(1); // 1 데미지
+
+            Destroy(gameObject);
+        }
+        if (collision.transform.tag == "BossHead") // 보스의 머리
+        {
+            Debug.Log("피격");
+            collision.transform.gameObject.GetComponent<BossEnemy>().TakeDamage(10); // 10 데미지
+            collision.transform.gameObject.GetComponent<BossEnemy>().headShotCnt += 1; // 헤드샷 카운트
+            Debug.Log("헤드샷 카운트 : " + collision.transform.gameObject.GetComponent<BossEnemy>().headShotCnt);
+
+            Destroy(gameObject);
+        }
+
+
+        //If bullet collides with "Ghoul" tag
+        if (collision.transform.tag == "ghoul")
+        {
+            int damage = 10;
+            collision.transform.gameObject.GetComponent<ghoulScript>().TakeDamage(damage);
 
             //Destroy bullet object
             Destroy(gameObject);
