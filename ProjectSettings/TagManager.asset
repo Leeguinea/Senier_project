@@ -22,8 +22,6 @@ TagManager:
   - Item
   - ChargeMachine
   - bullet
-  - Ghoul
-  - ghoul
   layers:
   - Default
   - TransparentFX
