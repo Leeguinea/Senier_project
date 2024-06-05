@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 움직임과 데미지
 namespace MimicSpace
 {
-    /// <summary>
-    /// This is a very basic movement script, if you want to replace it
-    /// Just don't forget to update the Mimic's velocity vector with a Vector3(x, 0, z)
-    /// </summary>
     public class Movement : MonoBehaviour
     {
         [Header("Controls")]
@@ -19,20 +16,42 @@ namespace MimicSpace
         public float velocityLerpCoef = 4f;
         Mimic myMimic;
 
+        private Transform playerTransform;
+
         private void Start()
         {
             myMimic = GetComponent<Mimic>();
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             StartCoroutine(MoveRoutine());
         }
 
         void Update()
         {
-            velocity = Vector3.Lerp(velocity, new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * speed, velocityLerpCoef * Time.deltaTime);
+            Vector3 direction = Vector3.zero;
+
+            if (playerTransform != null)
+            {
+                float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+                if (distanceToPlayer < 1f)
+                {
+                    // 플레이어로부터 멀어지게 하기
+                    direction = (transform.position - playerTransform.position).normalized;
+                }
+                else
+                {
+                    // 기본 이동 방향
+                    direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+                }
+            }
+
+            velocity = Vector3.Lerp(velocity, direction * speed, velocityLerpCoef * Time.deltaTime);
 
             // Assigning velocity to the mimic to assure great leg placement
             myMimic.velocity = velocity;
 
             transform.position = transform.position + velocity * Time.deltaTime;
+
             RaycastHit hit;
             Vector3 destHeight = transform.position;
             if (Physics.Raycast(transform.position + Vector3.up * 5f, -Vector3.up, out hit))
@@ -82,6 +101,5 @@ namespace MimicSpace
                 yield return null;
             }
         }
-
     }
 }
