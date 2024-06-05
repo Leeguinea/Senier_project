@@ -87,7 +87,7 @@ public class InteractObjects : MonoBehaviour
                         // 상호작용 가능한 오브젝트와 상호작용하는 함수 호출
                         if (hit.collider.GetComponent<PaperObjects>().isInteracting == false)
                         {
-                            hit.collider.GetComponent<PaperObjects>().isInteracting = true;
+                            hit.collider.GetComponent<PaperObjects>().StartInteraction();
                         }
                         else
                         {

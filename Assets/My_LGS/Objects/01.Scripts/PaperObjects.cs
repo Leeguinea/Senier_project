@@ -143,7 +143,7 @@ public class PaperObjects : MonoBehaviour
         }
 
         // 문서 오브젝트를 플레이어 카메라 근처로 이동 및 확대
-        transform.position = mainCamera.transform.position + mainCamera.transform.forward * 0.155f + Vector3.up * 0.10f;
+        transform.position = mainCamera.transform.position + mainCamera.transform.forward * 0.18f + Vector3.up * 0.001f;
 
         // 문서 오브젝트를 플레이어의 시선과 일치하도록 회전
         transform.rotation = Quaternion.LookRotation(mainCamera.transform.forward);
