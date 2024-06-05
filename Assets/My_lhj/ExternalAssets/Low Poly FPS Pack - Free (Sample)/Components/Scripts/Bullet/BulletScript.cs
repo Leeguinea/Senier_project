@@ -91,7 +91,23 @@ public class BulletScript : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        if (collision.transform.tag == "ghoul2")
+        {
+            int damage = 10;
+            collision.transform.gameObject.GetComponent<ghoul2>().TakeDamage(damage);
 
+            //Destroy bullet object
+            Destroy(gameObject);
+        }
+
+       /* if (collision.transform.tag == "mimic")
+        {
+            int damage = 10;
+            collision.transform.gameObject.GetComponent<Movement>().TakeDamage(damage);
+
+            //Destroy bullet object
+            Destroy(gameObject);
+        }*/
 
         //If bullet collides with "ExplosiveBarrel" tag
         if (collision.transform.tag == "ExplosiveBarrel") 

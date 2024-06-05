@@ -24,6 +24,8 @@ TagManager:
   - bullet
   - Ghoul
   - ghoul
+  - mimic
+  - ghoul2
   layers:
   - Default
   - TransparentFX

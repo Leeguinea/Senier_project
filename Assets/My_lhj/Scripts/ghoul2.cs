@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ghoulScript : MonoBehaviour
+public class ghoul2 : MonoBehaviour
 {
     [SerializeField]
     private int enemyMaxHP = 1;
@@ -41,7 +41,6 @@ public class ghoulScript : MonoBehaviour
 
         if (targetPlayer != null && !isAttacking)
         {
-            RotateTowardsPlayer();
             float distanceToPlayer = Vector3.Distance(transform.position, targetPlayer.transform.position);
             if (distanceToPlayer <= 1f) // 공격 범위 내에 있을 경우
             {
@@ -50,10 +49,15 @@ public class ghoulScript : MonoBehaviour
                     StartCoroutine(AttackPlayer());
                 }
             }
-            else
+            else if (distanceToPlayer > 2f) // 플레이어와의 거리가 2미터 이상일 경우 추격
             {
                 animator.SetBool("Run", true);
                 agent.SetDestination(targetPlayer.transform.position);
+            }
+            else // 플레이어와의 거리가 2미터 이하일 경우 추격 중지
+            {
+                animator.SetBool("Run", false);
+                agent.ResetPath(); // 적의 경로를 초기화하여 추격을 멈춤
             }
         }
     }
@@ -66,12 +70,11 @@ public class ghoulScript : MonoBehaviour
     IEnumerator EnemyDie()
     {
         agent.speed = 0;
-        enemyCollider.enabled = false; 
-        animator.SetBool("Dies", true); 
-        yield return new WaitForSeconds(0.5f); 
+        enemyCollider.enabled = false;
+        animator.SetBool("Dies", true);
+        yield return new WaitForSeconds(0.5f);
 
-        Destroy(gameObject); 
-
+        Destroy(gameObject);
     }
 
     private IEnumerator AttackPlayer()
