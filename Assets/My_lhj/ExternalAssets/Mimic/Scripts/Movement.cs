@@ -42,34 +42,46 @@ namespace MimicSpace
 
         IEnumerator MoveRoutine()
         {
-            while (true)
+            Vector3 initialPosition = transform.position; // 처음 위치 저장
+
+            // 이동 및 정지 로직을 함수로 분리
+            yield return Move(Vector3.forward, 20f, 5f);  // z축으로 5초 동안 이동
+            yield return Wait(3f);                        // 3초 동안 정지
+            yield return Move(Vector3.right, -20f, 5f);    // x축으로 5초 동안 이동
+            yield return Wait(3f);                        // 3초 동안 정지
+            yield return MoveToInitial(initialPosition, 5f); // 처음 위치로 5초 동안 이동
+            yield return Wait(3f);                        // 3초 동안 정지
+        }
+
+        IEnumerator Move(Vector3 direction, float distance, float duration)
+        {
+            float elapsedTime = 0f;
+            Vector3 start = transform.position;
+            Vector3 end = start + direction.normalized * distance;
+            while (elapsedTime < duration)
             {
-                // x축 +30 방향으로 5초동안 이동
-                float elapsedTime = 0f;
-                while (elapsedTime < 5f)
-                {
-                    velocity = Vector3.left * (30f / 5f); // 5초 동안 +30 이동
-                    elapsedTime += Time.deltaTime;
-                    yield return null;
-                }
-
-                // 3초 동안 정지
-                velocity = Vector3.zero;
-                yield return new WaitForSeconds(3f);
-
-                // x축 -30 방향으로 5초동안 이동
-                elapsedTime = 0f;
-                while (elapsedTime < 5f)
-                {
-                    velocity = Vector3.right * (30f / 5f); // 5초 동안 -30 이동
-                    elapsedTime += Time.deltaTime;
-                    yield return null;
-                }
-
-                // 3초 동안 정지
-                velocity = Vector3.zero;
-                yield return new WaitForSeconds(3f);
+                transform.position = Vector3.Lerp(start, end, (elapsedTime / duration));
+                elapsedTime += Time.deltaTime;
+                yield return null;
             }
         }
+
+        IEnumerator Wait(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+        }
+
+        IEnumerator MoveToInitial(Vector3 initialPosition, float duration)
+        {
+            float elapsedTime = 0f;
+            Vector3 start = transform.position;
+            while (elapsedTime < duration)
+            {
+                transform.position = Vector3.Lerp(start, initialPosition, (elapsedTime / duration));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+
     }
 }

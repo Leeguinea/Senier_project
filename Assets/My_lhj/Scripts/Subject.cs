@@ -59,6 +59,8 @@ public class Subject : MonoBehaviour
         }
     }
 
+
+
     //기즈모 -> 범위 측정 하는 것
     private void OnDrawGizmos()
     {
