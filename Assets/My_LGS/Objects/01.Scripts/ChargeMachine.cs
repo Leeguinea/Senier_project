@@ -14,6 +14,8 @@ public class ChargeMachine : MonoBehaviour
     [Header("Gate2")]
     public ExitDoor2 exitDoor2;
 
+    public bool isCharging = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class ChargeMachine : MonoBehaviour
         exitDoor2 = FindObjectOfType<ExitDoor2>(); // ExitDoor의 클래스
         if (exitDoor2 == null)
         {
-            Debug.LogError("exitDoor2 컴포넌트를 찾을 수 없습니다!");
+            //Debug.Log("exitDoor2 컴포넌트를 찾을 수 없습니다!");
         }
 
     }
@@ -54,6 +56,7 @@ public class ChargeMachine : MonoBehaviour
     public void StartExitDoor2()
     {
         exitDoor2.RechargeTrigerOn(1);
+        isCharging = true;
     }
 
 

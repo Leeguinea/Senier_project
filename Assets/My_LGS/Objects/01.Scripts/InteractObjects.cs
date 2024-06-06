@@ -82,19 +82,23 @@ public class InteractObjects : MonoBehaviour
                 // 문서 오브젝트 상호작용
                 if (hit.collider.CompareTag("Paper"))
                 {
-                    if (Input.GetKeyDown(KeyCode.F)) // 'F'키를 눌렀을 때
+                    if (hit.collider.GetComponent<PaperObjects>().isInteracting == false)
                     {
-                        // 상호작용 가능한 오브젝트와 상호작용하는 함수 호출
-                        if (hit.collider.GetComponent<PaperObjects>().isInteracting == false)
+                        if (Input.GetKeyDown(KeyCode.F))
                         {
+                            noticeMessage.DisplayNotice("ESC키를 눌러 해제");
+                            StartCoroutine(DelayedAction());
                             hit.collider.GetComponent<PaperObjects>().StartInteraction();
                         }
-                        else
-                        {
-                            hit.collider.GetComponent<PaperObjects>().isInteracting = false;
-                        }
-                        
                     }
+                    else
+                    {
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            hit.collider.GetComponent<PaperObjects>().EndInteraction();
+                        }
+                    }
+      
                 }
 
 
@@ -115,7 +119,7 @@ public class InteractObjects : MonoBehaviour
                     {
                         hit.collider.transform.GetComponentInParent<Lever>().ChangeLeverState(1); // 레버를 열고 닫는 함수 실행
                         
-                        noticeMessage.DisplayNotice("레버 활성화");
+                        noticeMessage.DisplayNotice("1구역의 게이트가 개방되었다.");
                     }
                 }
 
@@ -189,7 +193,7 @@ public class InteractObjects : MonoBehaviour
                         {
                             hasBattery = true;
                             hit.collider.gameObject.SetActive(false); //오브젝트를 비활성화
-
+                            noticeMessage.DisplayNotice("전력실로 돌아가 배터리를 교체하자.");
                             earnItemSound.Play(); // 획득음
                         }
                     }
@@ -202,6 +206,7 @@ public class InteractObjects : MonoBehaviour
                             {
                                 hit.collider.transform.GetComponent<ChargeMachine>().ChargingMachine();
                                 hasBattery = false;
+                                noticeMessage.DisplayNotice("2구역의 게이트가 개방되었다.");
                             }
                         }
                         else // 배터리 미소유 상태
@@ -209,6 +214,7 @@ public class InteractObjects : MonoBehaviour
                             if (Input.GetKeyDown(KeyCode.F))
                             {
                                 InteractedAimUI.SetActive(false);
+                                noticeMessage.DisplayNotice("새 배터리가 필요하다.");
                             }
                         }
                     }
@@ -246,5 +252,8 @@ public class InteractObjects : MonoBehaviour
             earnItemSound.Play();
         }
     }
-
+    IEnumerator DelayedAction()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+    }
 }

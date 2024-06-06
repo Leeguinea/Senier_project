@@ -17,7 +17,12 @@ public class ExitDoor3 : MonoBehaviour
     public AudioSource gateOpenSound;   // 문이 열릴 때 재생할 오디오 소스
 
     private bool isGateOpened = false;  // 문이 열렸는지 확인
-    
+    NoticeMessage noticeMessage;
+
+    private void Awake()
+    {
+        noticeMessage = FindObjectOfType<NoticeMessage>();
+    }
 
     void Start()
     {
@@ -95,6 +100,7 @@ public class ExitDoor3 : MonoBehaviour
         if (gateOpenSound != null)
         {
             gateOpenSound.Play();
+            noticeMessage.DisplayNotice("3구역의 게이트가 열렸다. 엘레베이터로 탈출하자");
         }
 
         Debug.Log("세번째 게이트 개문");

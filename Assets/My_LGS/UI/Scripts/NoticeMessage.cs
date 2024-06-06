@@ -13,9 +13,8 @@ public class NoticeMessage : MonoBehaviour
     public Animator NoticeMessageAnimator;
 
     // 코루틴 딜레이
-    private WaitForSeconds _UIDelay1 = new WaitForSeconds(2f); // 활성화 시간
-    private WaitForSeconds _UIDelay2 = new WaitForSeconds(0.3f);
-
+    private WaitForSecondsRealtime _UIDelay1 = new WaitForSecondsRealtime(2f); // 활성화 시간
+    private WaitForSecondsRealtime _UIDelay2 = new WaitForSecondsRealtime(0.3f);
 
     void Start()
     {
@@ -23,16 +22,20 @@ public class NoticeMessage : MonoBehaviour
         {
             Debug.LogError("Pannel가 할당되지 않았습니다!");
         }
+
         if (MessageText == null)
         {
             Debug.LogError("MessageText가 할당되지 않았습니다!");
             return;
         }
+
         if (NoticeMessageAnimator == null)
         {
             Debug.LogError("NoticeMessageAnimator가 할당되지 않았습니다!");
             return;
         }
+        NoticeMessageAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+
 
         Panel.SetActive(false); // 알림창 비활성화
     }

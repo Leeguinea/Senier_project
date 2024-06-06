@@ -4,33 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Xml;
-using Unity.VisualScripting;
 using TMPro;
 
 
 public class PaperObjects : MonoBehaviour
 {
+    [Header("Paper Setting")]
     public string filePath = "Assets/My_LGS/Objects/Clipboard/Paper.xml";
     public string obj_id;
+    public bool isInteracting; // 상호작용 중 여부
+
+    [Header("Paper sound")]
+    public AudioSource papeSound;
+
+    [Header("Aim UI")]
+    public GameObject gunUI; // 총 UI
+    public GameObject interactedAimUI; // 에이밍 UI
 
     private Camera mainCamera; // 플레이어 카메라
     private Vector3 originalPosition; // 원래 위치
     private Quaternion originalRotation; // 원래 회전
-    public bool isInteracting = false; // 상호작용 중 여부
-
-    private Collider paperCollider; // 문서 오브젝트의 콜라이더
 
 
     // Start is called before the first frame update
     void Start()
     {
+        isInteracting = false;
+
         // 메인 카메라 
         mainCamera = Camera.main;
         originalPosition = transform.position;
         originalRotation = transform.rotation;
 
-        // 시작할 때 콜라이더를 가져옴
-        paperCollider = GetComponent<Collider>();
 
         // 문서 파일 디스플레이
         if (System.IO.File.Exists(filePath))
@@ -46,9 +51,6 @@ public class PaperObjects : MonoBehaviour
                 string title = paper.SelectSingleNode("title").InnerText;
                 string date = paper.SelectSingleNode("date").InnerText;
                 string content = paper.SelectSingleNode("content").InnerText;
-                //Debug.Log("title : " + title);
-                //Debug.Log("date : " + date);
-                //Debug.Log("content : " + content);
 
                 Transform titleTransform = transform.Find("Title");
                 Transform dateTransform = transform.Find("Date");
@@ -112,62 +114,58 @@ public class PaperObjects : MonoBehaviour
         }
     }
 
-
     private void Update()
-    {
-        if (isInteracting) //상호작용 일시
+    {     
+        if (isInteracting == true)
         {
-            StartInteraction();
-            //PauseManager.PauseGame();
-
-            // ESC 키, F키를 눌렀을 때 상호작용 해제
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 EndInteraction();
-                //PauseManager.ResumeGame();
             }
         }
+        
+
     }
 
 
     public void StartInteraction() // 플레이어와 상호작용 시작
     {
-        //PauseManager.PauseGame();
-
+        // 게임을 일시중지
         Time.timeScale = 0f;
+        isInteracting = true;
 
-        // 콜라이더를 비활성화
-        if (paperCollider != null)
-        {
-            paperCollider.enabled = false;
-        }
+        // UI 비활성화
+        gunUI.SetActive(false);
+        interactedAimUI.SetActive(false);
 
         // 문서 오브젝트를 플레이어 카메라 근처로 이동 및 확대
-        transform.position = mainCamera.transform.position + mainCamera.transform.forward * 0.18f + Vector3.up * 0.001f;
+        transform.position = mainCamera.transform.position + mainCamera.transform.forward * 0.205f + Vector3.up * 0.000f;
 
         // 문서 오브젝트를 플레이어의 시선과 일치하도록 회전
         transform.rotation = Quaternion.LookRotation(mainCamera.transform.forward);
         transform.Rotate(90f,180f, 0f);
 
+        // 사운드 출력
+        papeSound.Play();
     }
 
 
     public void EndInteraction() // 플레이어와 상호작용 종료
     {
         // 게임을 다시 재개
-        //PauseManager.ResumeGame();
-        isInteracting = false;
         Time.timeScale = 1f;
+        isInteracting = false;
 
-        // 콜라이더를 활성화
-        if (paperCollider != null)
-        {
-            paperCollider.enabled = true;
-        }
+        // UI 활성화
+        gunUI.SetActive(true);
+        interactedAimUI.SetActive(true);
 
         // 문서 오브젝트를 원래 위치와 회전으로 되돌림
         transform.position = originalPosition;
         transform.rotation = originalRotation;
+
+        // 사운드 출력
+        papeSound.Play();
     }
 
 }

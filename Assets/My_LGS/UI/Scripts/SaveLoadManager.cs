@@ -76,7 +76,7 @@ public class SaveLoadManager : MonoBehaviour
 
         // 현재 씬이 stage1, stage2, stage3인 경우에만 세이브
         string currentSceneName = SceneManager.GetActiveScene().name;
-        if (currentSceneName == "Stage1" || currentSceneName == "Stage2" || currentSceneName == "Stage3")
+        if (currentSceneName == "Map1" || currentSceneName == "Map2" || currentSceneName == "Map3")
         {
             SaveData();
         }

@@ -12,21 +12,42 @@ public class ButtonLamp : MonoBehaviour
             Blue,
     }
 
-    public bool on;
+    public bool lightOn = false;
     public Transform lamp;
     public eColor lightColor;
 
     Renderer rend;
+
+    ChargeMachine chargeMachine;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rend = lamp.GetComponent<Renderer>();
+
+        chargeMachine = FindObjectOfType<ChargeMachine>();
+        if (chargeMachine == null)
+        {
+            lightOn = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (on)
+        // 충전 머신이 없거나 충전머신이 충전중이 아닌 경우
+        if (chargeMachine == null || !chargeMachine.isCharging) 
+        {
+            lightOn = false;
+        }
+        else
+        {
+            // If ChargeMachine is found and is charging, set on to true
+            lightOn = true;
+        }
+ 
+        if (lightOn)
         {
             switch (lightColor)
             {
@@ -52,4 +73,5 @@ public class ButtonLamp : MonoBehaviour
             rend.material.SetColor("_EmissionColor", new Color(0.0f, 0.0f, 0.0f, 0.0f));
         }
     }
+
 }
