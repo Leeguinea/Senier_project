@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\git\\UnityProjects\\Senier_project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lgs\\boss\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\boss\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lgs\\ui\\scripts\\saveloadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lgs\\ui\\scripts\\saveloadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lhj\\scripts\\bulletmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lhj\\scripts\\bulletmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lhj\\externalassets\\low poly fps pack - free (sample)\\components\\scripts\\fpscontroller\\fpscontrollerlpfp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lhj\\externalassets\\low poly fps pack - free (sample)\\components\\scripts\\fpscontroller\\fpscontrollerlpfp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lhj\\scripts\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lhj\\scripts\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|d:\\git\\unityprojects\\senier_project\\assets\\my_lhj\\externalassets\\low poly fps pack - free (sample)\\components\\scripts\\weapon_scripts\\handgunscriptlpfp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC442272-17AC-6FC1-EC86-BC01DB8E0AF3}|Assembly-CSharp.csproj|solutionrelative:assets\\my_lhj\\externalassets\\low poly fps pack - free (sample)\\components\\scripts\\weapon_scripts\\handgunscriptlpfp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SaveLoadManager.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\UI\\Scripts\\SaveLoadManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T13:32:15.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HandgunScriptLPFP.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\Weapon_Scripts\\HandgunScriptLPFP.cs",
+              "RelativeDocumentMoniker": "Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\Weapon_Scripts\\HandgunScriptLPFP.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\Weapon_Scripts\\HandgunScriptLPFP.cs",
+              "RelativeToolTip": "Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\Weapon_Scripts\\HandgunScriptLPFP.cs",
+              "ViewState": "AQIAAGwBAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T13:20:46.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FpsControllerLPFP.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\FPSController\\FpsControllerLPFP.cs",
+              "RelativeDocumentMoniker": "Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\FPSController\\FpsControllerLPFP.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\FPSController\\FpsControllerLPFP.cs",
+              "RelativeToolTip": "Assets\\My_lhj\\ExternalAssets\\Low Poly FPS Pack - Free (Sample)\\Components\\Scripts\\FPSController\\FpsControllerLPFP.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T13:19:17.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BulletManager.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\Scripts\\BulletManager.cs",
+              "RelativeDocumentMoniker": "Assets\\My_lhj\\Scripts\\BulletManager.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\Scripts\\BulletManager.cs",
+              "RelativeToolTip": "Assets\\My_lhj\\Scripts\\BulletManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T13:17:58.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\Scripts\\Subject.cs",
+              "RelativeDocumentMoniker": "Assets\\My_lhj\\Scripts\\Subject.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_lhj\\Scripts\\Subject.cs",
+              "RelativeToolTip": "Assets\\My_lhj\\Scripts\\Subject.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T13:17:12.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BossEnemy.cs",
+              "DocumentMoniker": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Boss\\BossEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\My_LGS\\Boss\\BossEnemy.cs",
+              "ToolTip": "D:\\git\\UnityProjects\\Senier_project\\Assets\\My_LGS\\Boss\\BossEnemy.cs",
+              "RelativeToolTip": "Assets\\My_LGS\\Boss\\BossEnemy.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAIwCUAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T12:53:18.32Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

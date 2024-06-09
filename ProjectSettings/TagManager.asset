@@ -7,6 +7,21 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - Bullet
+  - Lever
+  - Potal
+  - Heal
+  - Boss
+  - BossHead
+  - Subject
+  - Paper
+  - Door
+  - SubjectHand
+  - Waypoints
+  - GameManager
+  - AccessMachine
+  - Item
+  - ChargeMachine
+  - bullet
   layers:
   - Default
   - TransparentFX
@@ -15,11 +30,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - wall
+  - Cloud
+  - Interactable
+  - Player
+  - UI
   - 
   - 
   - 
